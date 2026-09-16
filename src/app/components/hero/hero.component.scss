@@ -26,6 +26,9 @@
   width: 100%;
   max-width: 40rem;
   padding: clamp(1.5rem, 3.2vw, 2.35rem);
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 .hero__card .eyebrow {
