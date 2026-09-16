@@ -24,6 +24,14 @@
   transform: translateX(40px) scale(0.985);
 }
 
+/* Horizontal slide reveals widen the document and let phones swipe sideways. */
+@media (max-width: 900px) {
+  .reveal--left,
+  .reveal--right {
+    transform: translateY(28px) scale(0.985);
+  }
+}
+
 .reveal--scale {
   transform: translateY(18px) scale(0.94);
 }

@@ -21,6 +21,8 @@ import { MobileCtaComponent } from './components/mobile-cta/mobile-cta.component
     `
       :host {
         display: block;
+        overflow-x: clip;
+        max-width: 100%;
       }
     `
   ]
