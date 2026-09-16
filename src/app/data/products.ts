@@ -6,57 +6,57 @@ export const FEATURED_PRODUCTS: ProductItem[] = [
   {
     id: 'fp1',
     name: 'Business Cards',
-    description: 'Substantial stock. Sharp colour. Finishes that feel intentional.',
-    image: `${IMG}/cmyk-business-cards.webp`,
+    description: 'Substantial stock. Sharp colour.',
+    image: `${IMG}/bento-cards-matte.webp`,
     size: 'large'
   },
   {
     id: 'fp2',
     name: 'Packaging',
-    description: 'Boxes and bags that turn the open into a brand moment.',
-    image: `${IMG}/cmyk-packaging.webp`,
+    description: 'Unboxing as a brand moment.',
+    image: `${IMG}/bento-pack-matte.webp`,
     size: 'medium'
   },
   {
     id: 'fp3',
     name: 'Brochures',
-    description: 'Multi-panel stories with clean folds and vivid print.',
-    image: `${IMG}/cmyk-brochures.webp`,
+    description: 'Clean folds. Vivid print.',
+    image: `${IMG}/bento-brochures-matte.webp`,
     size: 'medium'
   },
   {
     id: 'fp4',
     name: 'Stickers & Labels',
-    description: 'Cut clean. Stick strong. Brand everywhere it matters.',
-    image: `${IMG}/cmyk-stickers.webp`,
+    description: 'Cut clean. Stick strong.',
+    image: `${IMG}/bento-stickers-matte.webp`,
     size: 'wide'
   },
   {
     id: 'fp5',
     name: 'Promotional Merch',
-    description: 'Shirts, totes, and mugs that carry your brand further.',
-    image: `${IMG}/cmyk-promotional.webp`,
+    description: 'Wearable brand moments.',
+    image: `${IMG}/bento-merch-matte.webp`,
     size: 'small'
   },
   {
     id: 'fp6',
     name: 'Large Format',
-    description: 'Roll-ups and banners built for presence.',
-    image: `${IMG}/print-large-format.webp`,
-    size: 'wide'
+    description: 'Built for presence.',
+    image: `${IMG}/bento-banner-matte.webp`,
+    size: 'small'
   },
   {
     id: 'fp7',
     name: 'Invitations',
-    description: 'Celebration print with refined type and premium finishing.',
-    image: `${IMG}/print-invitations.webp`,
-    size: 'small'
+    description: 'Refined celebration print.',
+    image: `${IMG}/bento-invite-matte.webp`,
+    size: 'medium'
   },
   {
     id: 'fp8',
     name: 'Catalogues',
-    description: 'Bound pieces that present a full product line with polish.',
-    image: `${IMG}/print-catalogues.webp`,
+    description: 'Bound with polish.',
+    image: `${IMG}/bento-catalogue-matte.webp`,
     size: 'medium'
   }
 ];

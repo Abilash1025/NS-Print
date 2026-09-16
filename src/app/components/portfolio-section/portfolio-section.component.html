@@ -1,5 +1,5 @@
-<section class="pf section section-soft">
-  <div class="container-wide">
+<section class="pf section section-canvas" id="work">
+  <div class="container">
     @if (showHeader()) {
       <div class="head-split" appReveal>
         <div>
@@ -12,7 +12,7 @@
       </div>
     }
 
-    <div class="pf__bar" appReveal>
+    <div class="pf__bar elev-card" appReveal>
       <div class="pf__filters" role="tablist" aria-label="Portfolio categories">
         @for (filter of filters; track filter.id) {
           <button
@@ -30,18 +30,17 @@
       <span class="pf__count num-label">{{ items.length }} projects</span>
     </div>
 
-    <div class="pf__grid">
+    <div class="pf__grid" appReveal="stagger">
       @for (item of items; track item.id; let i = $index) {
         <button
           type="button"
-          class="pf__item"
-          appReveal
-          data-cursor="VIEW"
+          class="pf__item anim-card"
           (click)="open(item)"
         >
-          <span class="pf__frame">
+          <span class="anim-card__shine" aria-hidden="true"></span>
+          <span class="pf__frame anim-card__media">
             <img [src]="item.thumb" [alt]="item.title" loading="lazy" />
-            <span class="pf__ink" [attr.data-ink]="i % 4" aria-hidden="true"></span>
+            <span class="anim-card__scan" aria-hidden="true"></span>
           </span>
           <span class="pf__meta">
             <span class="pf__title">{{ item.title }}</span>

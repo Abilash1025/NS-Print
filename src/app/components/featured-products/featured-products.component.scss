@@ -1,81 +1,85 @@
-/* Asymmetric editorial product grid — light, no heavy dark overlays */
-
-.featured__grid {
+.bento {
   display: grid;
-  gap: 1.5rem 1.25rem;
+  gap: 1.2rem;
+  grid-template-columns: 1fr;
 }
 
-@media (min-width: 700px) {
-  .featured__grid {
-    grid-template-columns: repeat(6, 1fr);
+@media (min-width: 720px) {
+  .bento {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(110px, auto);
+    gap: 1.4rem;
   }
 
-  .fp--large { grid-column: span 4; }
-  .fp--medium { grid-column: span 2; }
-  .fp--wide { grid-column: span 3; }
-  .fp--small { grid-column: span 3; }
+  .bento__item[data-size='large'] {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .bento__item[data-size='wide'] {
+    grid-column: span 2;
+  }
+
+  .bento__item[data-size='medium'],
+  .bento__item[data-size='small'] {
+    grid-column: span 1;
+  }
 }
 
-.fp {
+.bento__item {
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
-.fp__img {
-  overflow: hidden;
-  background: var(--surface-muted);
-  border: 1px solid var(--border);
+.bento__img {
+  flex: 1 1 auto;
+  min-height: 96px;
 }
 
-.fp__img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  aspect-ratio: 1.35;
-  transition: transform 500ms var(--ease-out);
+.bento__item[data-size='large'] .bento__img {
+  min-height: 180px;
+  flex: 1 1 0;
 }
 
-.fp--large .fp__img img {
-  aspect-ratio: 1.7;
+@media (min-width: 720px) {
+  .bento__img img {
+    position: absolute;
+    inset: 0;
+  }
 }
 
-.fp:hover .fp__img img {
-  transform: scale(1.04);
+.bento__body {
+  flex-shrink: 0;
+  padding: 0.7rem 0.85rem 0.85rem;
+  background: #fff;
 }
 
-.fp__bar {
+.bento__bar {
   display: flex;
   align-items: baseline;
-  gap: 0.75rem;
-  padding-top: 0.85rem;
-  margin-top: 0.85rem;
-  border-top: 1px solid var(--border-strong);
+  justify-content: space-between;
+  gap: 0.4rem;
 }
 
-.fp__index {
+.bento__bar h3 {
+  font-size: 0.8rem;
+}
+
+.bento__req {
+  font-size: 0.62rem;
+  font-weight: 700;
   color: var(--text-muted);
-}
-
-.fp__bar h3 {
-  flex: 1;
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-}
-
-.fp__req {
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  white-space: nowrap;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-.fp:hover .fp__req {
+.bento__item:hover .bento__req {
   color: var(--text-primary);
 }
 
-.fp__desc {
-  margin-top: 0.5rem;
-  font-size: 0.88rem;
-  max-width: 26rem;
+.bento__body p {
+  margin-top: 0.15rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
 }

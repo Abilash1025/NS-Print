@@ -1,24 +1,72 @@
-<section class="why section-tight">
-  <div class="container-wide">
-    <div class="head-split" appReveal>
-      <div>
-        <p class="eyebrow">Why NS Print Mart</p>
-        <h2 class="display-md">Built Around the Details<br />Brands Notice</h2>
-      </div>
-      <p class="lead">
-        Six reasons clients keep coming back for the next run.
-      </p>
-    </div>
+<section class="why section-tight section-canvas" id="why">
+  <div class="container why__wrap">
+    <div class="why__bento" appReveal="stagger">
+      <header class="why__intro">
+        <p class="eyebrow">Why print with us</p>
+        <h2 class="display-md why__title">Print that holds up<br />under a loupe.</h2>
+        <p class="lead why__lead">
+          We press-check, proof, and stand by every detail — so your work looks as sharp in print as it does in your file.
+        </p>
+      </header>
 
-    <div class="why__rows">
-      @for (item of items; track item.id; let i = $index) {
-        <article class="why__row" appReveal>
-          <span class="why__num num-label">0{{ i + 1 }}</span>
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.description }}</p>
-          <span class="why__rule" [attr.data-ink]="i % 4" aria-hidden="true"></span>
-        </article>
-      }
+      <article class="why__tile why__tile--feature elev-card">
+        <div class="why__tile-copy">
+          <h3>{{ colour.title }}</h3>
+          <p>{{ colour.description }}</p>
+        </div>
+        <div class="why__meter" title="Densitometer reading — ink density on press">
+          <span class="why__meter-label">Ink density · press check</span>
+          <div class="why__meter-device" aria-hidden="true">
+            <span class="why__meter-screen">
+              <em>D</em>
+              <span class="why__meter-read">
+                <b>1.38</b>
+                <b>1.42</b>
+                <b>1.45</b>
+                <b>1.43</b>
+                <b>1.45</b>
+              </span>
+            </span>
+            <span class="why__meter-lens">
+              <i></i>
+            </span>
+          </div>
+          <div class="why__meter-bar" aria-hidden="true">
+            <i></i><i></i><i></i><i></i>
+            <span class="why__meter-scan"></span>
+          </div>
+          <span class="why__meter-note">Target solid density on press</span>
+        </div>
+      </article>
+
+      <article class="why__tile why__tile--timing elev-card">
+        <h3>{{ timing.title }}</h3>
+        <p>{{ timing.description }}</p>
+        <ol class="why__steps" aria-hidden="true">
+          <li><span>01</span></li>
+          <li><span>02</span></li>
+          <li><span>03</span></li>
+        </ol>
+      </article>
+
+      <article class="why__tile why__tile--finish elev-card">
+        <h3>{{ finish.title }}</h3>
+        <p>{{ finish.description }}</p>
+        <span class="why__quote" aria-hidden="true">”</span>
+      </article>
+
+      <article class="why__tile why__tile--care elev-card">
+        <h3>{{ care.title }}</h3>
+        <p>{{ care.description }}</p>
+        <ul class="why__flow" aria-hidden="true">
+          @for (step of care.steps; track step.label; let i = $index) {
+            <li [attr.data-ink]="i">
+              <strong>{{ step.label }}</strong>
+              <em>{{ step.hint }}</em>
+            </li>
+          }
+        </ul>
+      </article>
     </div>
   </div>
 </section>

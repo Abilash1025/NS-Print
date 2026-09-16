@@ -18,8 +18,7 @@ export const COMPANY: CompanyInfo = {
   website: 'https://www.nsprintmart.com',
   addressLines: ['6 1/1T Galpotha Street', 'Colombo - 13', 'Sri Lanka'],
   mapQuery: '6 1/1T Galpotha Street Colombo 13',
-  // PLACEHOLDER — replace with real opening hours
-  openingHours: 'Opening hours — add details',
+  openingHours: 'Mon–Sat 9:00 AM – 7:00 PM · Closed Sunday',
   social: [
     // PLACEHOLDER — replace url and set enabled: true when ready
     { label: 'Facebook', url: '#', enabled: false },

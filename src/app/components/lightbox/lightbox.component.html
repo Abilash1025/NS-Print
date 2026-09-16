@@ -5,8 +5,8 @@
   [attr.aria-label]="item().title"
   (click)="onBackdrop($event)"
 >
-  <div class="lightbox__panel">
-    <button type="button" class="lightbox__close" aria-label="Close" (click)="closed.emit()">×</button>
+  <div class="lightbox__panel" (click)="$event.stopPropagation()">
+    <button type="button" class="lightbox__close" aria-label="Close" (click)="close()">×</button>
     <img [src]="item().image" [alt]="item().title" />
     <div class="lightbox__meta">
       <p class="lightbox__cat">{{ item().categoryLabel }}</p>

@@ -2,11 +2,14 @@
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: rgba(23, 21, 22, 0.86);
+  background: rgba(23, 21, 22, 0.72);
   display: grid;
   place-items: center;
   padding: 1.25rem;
-  animation: fade-in 200ms var(--ease-out);
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+  backdrop-filter: blur(4px);
 }
 
 .lightbox__panel {
@@ -14,8 +17,12 @@
   width: min(1000px, 100%);
   max-height: min(92vh, 940px);
   overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
   background: var(--surface);
-  animation: panel-in 320ms var(--ease-out);
+  border-radius: var(--radius-card);
+  box-shadow: var(--elev-3);
 }
 
 .lightbox__panel img {
@@ -25,34 +32,21 @@
 }
 
 .lightbox__meta {
-  padding: 1.35rem 1.5rem 1.75rem;
-  border-top: 4px solid transparent;
-  border-image: linear-gradient(
-      90deg,
-      var(--brand-cyan) 0 25%,
-      var(--brand-magenta) 25% 50%,
-      var(--brand-yellow) 50% 75%,
-      var(--text-primary) 75%
-    )
-    1;
+  padding: 1.25rem 1.35rem 1.5rem;
 }
 
 .lightbox__cat {
-  font-size: 0.66rem;
+  font-size: 0.62rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .lightbox__meta h2 {
-  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
-  margin-bottom: 0.6rem;
-}
-
-.lightbox__meta p {
-  max-width: 42rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  margin-bottom: 0.5rem;
 }
 
 .lightbox__close {
@@ -60,26 +54,14 @@
   top: 0;
   right: 0;
   z-index: 2;
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border: 0;
+  border-radius: 0 0 0 var(--radius-sm);
   background: var(--text-primary);
   color: #fff;
-  font-size: 1.35rem;
-  line-height: 1;
+  font-size: 1.25rem;
   cursor: pointer;
-}
-
-.lightbox__close:hover {
-  background: #000;
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes panel-in {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: none; }
 }

@@ -1,10 +1,6 @@
-@use 'styles/tokens';
-@use 'styles/typography';
-@use 'styles/buttons';
-@use 'styles/layout';
-@use 'styles/animations';
-
-body.cursor-active,
-body.cursor-active * {
-  cursor: none !important;
-}
+@use './styles/tokens';
+@use './styles/typography';
+@use './styles/buttons';
+@use './styles/layout';
+@use './styles/cards';
+@use './styles/animations';

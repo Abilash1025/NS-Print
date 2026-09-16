@@ -1,7 +1,6 @@
 import { PortfolioCategory, PortfolioItem } from '../models';
 
 const WORK = 'assets/images/portfolio';
-const PRINT = 'assets/images/print';
 
 export const PORTFOLIO_FILTERS: { id: PortfolioCategory; label: string }[] = [
   { id: 'all', label: 'All' },
@@ -31,8 +30,8 @@ export const PORTFOLIO: PortfolioItem[] = [
     categoryLabel: 'Corporate',
     description:
       'Business card run showing full-colour capability across black and CMYK ink stocks.',
-    image: `${PRINT}/cmyk-business-cards.webp`,
-    thumb: `${PRINT}/cmyk-business-cards.webp`
+    image: `${WORK}/work-gen-cards.webp`,
+    thumb: `${WORK}/work-gen-cards.webp`
   },
   {
     id: 'p3',
@@ -51,8 +50,8 @@ export const PORTFOLIO: PortfolioItem[] = [
     categoryLabel: 'Promotional',
     description:
       'Folded brochures and flyers built for high-impact colour and clean folding.',
-    image: `${PRINT}/cmyk-brochures.webp`,
-    thumb: `${PRINT}/cmyk-brochures.webp`
+    image: `${WORK}/work-gen-brochures.webp`,
+    thumb: `${WORK}/work-gen-brochures.webp`
   },
   {
     id: 'p5',
@@ -61,8 +60,8 @@ export const PORTFOLIO: PortfolioItem[] = [
     categoryLabel: 'Custom',
     description:
       'Invitation and event stationery with deckled edges and blind embossed detail.',
-    image: `${PRINT}/print-invitations.webp`,
-    thumb: `${PRINT}/print-invitations.webp`
+    image: `${WORK}/work-gen-invites.webp`,
+    thumb: `${WORK}/work-gen-invites.webp`
   },
   {
     id: 'p6',
@@ -91,8 +90,8 @@ export const PORTFOLIO: PortfolioItem[] = [
     categoryLabel: 'Custom',
     description:
       'Die-cut stickers and labels produced across CMYK and monochrome vinyl stocks.',
-    image: `${PRINT}/cmyk-stickers.webp`,
-    thumb: `${PRINT}/cmyk-stickers.webp`
+    image: `${WORK}/work-gen-stickers.webp`,
+    thumb: `${WORK}/work-gen-stickers.webp`
   },
   {
     id: 'p9',
@@ -100,8 +99,8 @@ export const PORTFOLIO: PortfolioItem[] = [
     category: 'branding',
     categoryLabel: 'Branding',
     description: 'Bound catalogue work focused on product storytelling and clean pagination.',
-    image: `${PRINT}/print-catalogues.webp`,
-    thumb: `${PRINT}/print-catalogues.webp`
+    image: `${WORK}/work-gen-catalogue.webp`,
+    thumb: `${WORK}/work-gen-catalogue.webp`
   },
   {
     id: 'p10',
@@ -110,8 +109,8 @@ export const PORTFOLIO: PortfolioItem[] = [
     categoryLabel: 'Corporate',
     description:
       'Letterheads, envelopes, and folders produced as a matched business identity set.',
-    image: `${PRINT}/print-stationery.webp`,
-    thumb: `${PRINT}/print-stationery.webp`
+    image: `${WORK}/work-gen-stationery.webp`,
+    thumb: `${WORK}/work-gen-stationery.webp`
   },
   {
     id: 'p11',
@@ -120,8 +119,8 @@ export const PORTFOLIO: PortfolioItem[] = [
     categoryLabel: 'Large Format',
     description:
       'Large-format banner and roll-up print built for visibility in exhibition spaces.',
-    image: `${PRINT}/print-large-format.webp`,
-    thumb: `${PRINT}/print-large-format.webp`
+    image: `${WORK}/work-gen-banner.webp`,
+    thumb: `${WORK}/work-gen-banner.webp`
   },
   {
     id: 'p12',
@@ -130,8 +129,8 @@ export const PORTFOLIO: PortfolioItem[] = [
     categoryLabel: 'Packaging',
     description:
       'Custom boxes and bags finished for a premium unboxing moment across CMYK and black stocks.',
-    image: `${PRINT}/cmyk-packaging.webp`,
-    thumb: `${PRINT}/cmyk-packaging.webp`
+    image: `${WORK}/work-gen-packaging.webp`,
+    thumb: `${WORK}/work-gen-packaging.webp`
   },
   {
     id: 'p13',
@@ -139,8 +138,8 @@ export const PORTFOLIO: PortfolioItem[] = [
     category: 'promotional',
     categoryLabel: 'Promotional',
     description: 'Apparel, totes, and drinkware prepared as a promotional merchandise set.',
-    image: `${PRINT}/cmyk-promotional.webp`,
-    thumb: `${PRINT}/cmyk-promotional.webp`
+    image: `${WORK}/work-gen-merch.webp`,
+    thumb: `${WORK}/work-gen-merch.webp`
   },
   {
     id: 'p14',
@@ -149,7 +148,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     categoryLabel: 'Corporate',
     description:
       'Offset press detail showing CMYK ink laydown and registration during a production run.',
-    image: `${PRINT}/print-press-macro.webp`,
-    thumb: `${PRINT}/print-press-macro.webp`
+    image: `${WORK}/work-gen-press.webp`,
+    thumb: `${WORK}/work-gen-press.webp`
   }
 ];

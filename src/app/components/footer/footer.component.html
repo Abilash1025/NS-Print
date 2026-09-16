@@ -1,57 +1,107 @@
-<footer class="footer">
-  <span class="cmyk-rule" aria-hidden="true"></span>
-
-  <div class="footer__top container-wide">
-    <div class="footer__brand">
-      <img src="assets/logos/logo-nav.webp" width="72" height="57" alt="NS Print Mart" />
-      <p class="footer__desc">{{ company.description }}</p>
-      <p class="footer__tagline">{{ company.tagline }}</p>
-    </div>
-
-    <nav class="footer__col" aria-label="Footer navigation">
-      <h2>Navigate</h2>
-      <ul>
-        @for (link of links; track link.path) {
-          <li><a [routerLink]="link.path" class="link-underline">{{ link.label }}</a></li>
-        }
-      </ul>
-    </nav>
-
-    <div class="footer__col">
-      <h2>Services</h2>
-      <ul>
-        @for (service of services; track service.id) {
-          <li>
-            <a [routerLink]="['/services', service.slug]" class="link-underline">{{ service.name }}</a>
-          </li>
-        }
-      </ul>
-    </div>
-
-    <div class="footer__col">
-      <h2>Contact</h2>
-      <ul>
-        <li><a [href]="telUrl" class="link-underline">{{ company.phoneDisplay }}</a></li>
-        <li><a [href]="mailUrl" class="link-underline">{{ company.email }}</a></li>
-        @for (line of company.addressLines; track line) {
-          <li class="footer__plain">{{ line }}</li>
-        }
-        <li class="footer__hours">{{ company.openingHours }}</li>
-      </ul>
-      <div class="footer__social">
+<footer class="ft">
+  <div class="ft__bands">
+    <section class="ft__band ft__band--social">
+      <p class="ft__eyebrow">Get Social</p>
+      <h2 class="ft__title">Connect with us</h2>
+      <div class="ft__icons">
         @for (social of company.social; track social.label) {
           @if (social.enabled) {
-            <a [href]="social.url" target="_blank" rel="noopener noreferrer">{{ social.label }}</a>
+            <a
+              [href]="social.url"
+              class="ft__icon"
+              target="_blank"
+              rel="noopener noreferrer"
+              [attr.aria-label]="social.label"
+            >
+              <span class="ft__icon-glyph" aria-hidden="true">
+                @switch (social.label) {
+                  @case ('Facebook') {
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.6l.4-3H14V9c0-.6.4-1 1-1z"/></svg>
+                  }
+                  @case ('Instagram') {
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.5A3.5 3.5 0 1 1 8.5 12 3.5 3.5 0 0 1 12 8.5zm0 2A1.5 1.5 0 1 0 13.5 12 1.5 1.5 0 0 0 12 10.5zM17.2 7.2a.9.9 0 1 1-.9.9.9.9 0 0 1 .9-.9z"/></svg>
+                  }
+                  @case ('WhatsApp') {
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.39 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.07-.11-.22-.16-.47-.28z"/></svg>
+                  }
+                  @default {
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg>
+                  }
+                }
+              </span>
+              <span class="ft__icon-label">{{ social.label }}</span>
+            </a>
           } @else {
-            <span class="is-placeholder" title="Link to be added">{{ social.label }}</span>
+            <span class="ft__icon is-placeholder" [attr.title]="social.label + ' — coming soon'" [attr.aria-label]="social.label + ' coming soon'">
+              <span class="ft__icon-glyph" aria-hidden="true">
+                @switch (social.label) {
+                  @case ('Facebook') {
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.6l.4-3H14V9c0-.6.4-1 1-1z"/></svg>
+                  }
+                  @case ('Instagram') {
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.5A3.5 3.5 0 1 1 8.5 12 3.5 3.5 0 0 1 12 8.5zm0 2A1.5 1.5 0 1 0 13.5 12 1.5 1.5 0 0 0 12 10.5zM17.2 7.2a.9.9 0 1 1-.9.9.9.9 0 0 1 .9-.9z"/></svg>
+                  }
+                  @default {
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg>
+                  }
+                }
+              </span>
+              <span class="ft__icon-label">{{ social.label }}</span>
+            </span>
           }
         }
+        <a [href]="mailUrl" class="ft__icon" aria-label="Email">
+          <span class="ft__icon-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m4 7 8 6 8-6" />
+            </svg>
+          </span>
+          <span class="ft__icon-label">Email</span>
+        </a>
       </div>
-    </div>
+    </section>
+
+    <section class="ft__band ft__band--quote">
+      <p class="ft__eyebrow">Specs ready? Let’s print</p>
+      <h2 class="ft__title">Get the quote you need</h2>
+      <a href="#quote" class="ft__mail" (click)="goTo('quote', $event)">
+        <span>Request a quote</span>
+        <span class="ft__go" aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <a [href]="telUrl" class="ft__band ft__band--call" aria-label="Call NS Print Mart">
+      <p class="ft__eyebrow">Need it fast?</p>
+      <span class="ft__title-row">
+        <span class="ft__title">Call Us</span>
+        <span class="ft__go ft__go--lg" aria-hidden="true">→</span>
+      </span>
+      <span class="ft__phone">{{ company.phoneDisplay }}</span>
+    </a>
   </div>
 
-  <div class="footer__bottom container-wide">
-    <p>© {{ year }} {{ company.name }}</p>
-    <p>{{ company.subtitle }}</p>
+  <div class="ft__bar">
+    <div class="ft__bar-inner container-wide">
+      <div class="ft__bar-left">
+        <a href="#top" class="ft__mark" (click)="goTo('top', $event)" aria-label="NS Print Mart home">
+          <img
+            src="assets/logos/logo-nav.webp"
+            width="40"
+            height="32"
+            alt=""
+            class="ft__logo"
+          />
+          <span class="ft__brand">{{ company.name }}</span>
+        </a>
+        <nav class="ft__nav" aria-label="Footer">
+          @for (link of bottomLinks; track link.section) {
+            <a [href]="'#' + link.section" (click)="goTo(link.section, $event)">{{ link.label }}</a>
+          }
+          <a [href]="mapUrl" target="_blank" rel="noopener noreferrer">Location</a>
+        </nav>
+      </div>
+      <p class="ft__copy">© {{ year }} {{ company.name }}. All rights reserved.</p>
+    </div>
   </div>
 </footer>

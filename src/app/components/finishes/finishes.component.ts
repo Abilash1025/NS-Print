@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { FINISHES, FINISH_MARQUEE } from '../../data/finishes';
+import { FINISHES } from '../../data/finishes';
 import { RevealDirective } from '../../shared/reveal.directive';
 
 @Component({
@@ -11,9 +11,7 @@ import { RevealDirective } from '../../shared/reveal.directive';
 })
 export class FinishesComponent {
   readonly finishes = FINISHES;
-  readonly marquee = [...FINISH_MARQUEE, ...FINISH_MARQUEE];
   readonly activeId = signal(FINISHES[0].id);
-  /** Bumped on each change to retrigger the ink-wipe animation */
   readonly wipeKey = signal(0);
 
   get active() {

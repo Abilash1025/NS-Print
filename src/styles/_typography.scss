@@ -6,75 +6,76 @@ h5,
 h6 {
   font-family: var(--font-display);
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.2;
   color: var(--text-primary);
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   margin: 0;
   text-wrap: balance;
 }
 
 p {
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--text-secondary);
+  font-size: 0.875rem;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.4rem;
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.5rem;
 }
 
 .eyebrow::before {
   content: '';
-  width: 1.75rem;
-  height: 3px;
-  background: linear-gradient(90deg, var(--brand-cyan) 0 33%, var(--brand-magenta) 33% 66%, var(--brand-yellow) 66%);
+  width: 1.15rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-gray) 0 50%, var(--brand-charcoal) 50%);
 }
 
 .display-xl {
   font-family: var(--font-display);
-  font-size: clamp(3.25rem, 9.5vw, 8rem);
-  font-weight: 800;
-  line-height: 0.92;
-  letter-spacing: -0.04em;
+  font-size: clamp(1.75rem, 4vw, 2.65rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
 }
 
 .display-lg {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.035em;
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
 }
 
 .display-md {
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 4vw, 3rem);
-  font-weight: 800;
-  line-height: 1.04;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
 }
 
 .lead {
-  font-size: clamp(1rem, 1.3vw, 1.1rem);
-  line-height: 1.65;
+  font-size: 0.875rem;
+  line-height: 1.55;
   color: var(--text-secondary);
-  max-width: 34rem;
+  max-width: 28rem;
 }
 
 .num-label {
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
 }

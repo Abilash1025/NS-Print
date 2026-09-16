@@ -1,10 +1,9 @@
 <div class="quote">
   @if (submitted()) {
     <div class="quote__success" role="status">
-      <h3>Thanks. Your request has been prepared successfully.</h3>
+      <h3>WhatsApp is opening with your quote request.</h3>
       <p>
-        This is a frontend demo confirmation — the form was not sent to a server.
-        Contact us by phone or WhatsApp to continue your order.
+        Send the message to finish — if WhatsApp did not open, use the button below or call us.
       </p>
       <button type="button" class="btn btn-primary" (click)="resetSuccess()">Send another request</button>
     </div>
@@ -58,15 +57,15 @@
         </label>
         <label class="span-2">
           <span>Message *</span>
-          <textarea rows="5" formControlName="message" placeholder="Sizes, finishes, artwork notes…"></textarea>
+          <textarea rows="4" formControlName="message" placeholder="Sizes, finishes, artwork notes…"></textarea>
           @if (hasError('message')) {
             <small>Please add a short message.</small>
           }
         </label>
       </div>
-      <button type="submit" class="btn btn-primary" data-cursor="OPEN">Prepare quote request</button>
+      <button type="submit" class="btn btn-primary">Send on WhatsApp</button>
       <p class="quote__note">
-        Frontend demo form — no data is sent. Call or WhatsApp to confirm an order.
+        Your details open in WhatsApp so we can reply quickly with a quote.
       </p>
     </form>
   }

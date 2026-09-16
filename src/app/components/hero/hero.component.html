@@ -1,75 +1,124 @@
-<section class="hero">
-  <div class="hero__top container-wide">
-    <div class="hero__copy">
-      <p class="eyebrow" appReveal>{{ company.subtitle }} · Colombo</p>
-      <h1 class="display-xl hero__title">
-        <span class="hero__line" appReveal>Print That Makes</span>
-        <span class="hero__line" appReveal="reveal-delay-1">Your Brand</span>
-        <span class="hero__line" appReveal="reveal-delay-2">Unignorable.</span>
-      </h1>
-      <span class="cmyk-rule hero__rule" appReveal="reveal-delay-3" aria-hidden="true"></span>
-      <div class="hero__meta" appReveal="reveal-delay-3">
-        <p class="lead">
+<section class="hero" id="top">
+  <div class="hero__split">
+    <div class="hero__copy-wrap">
+      <div class="hero__card elev-card" appReveal="soft">
+        <p class="eyebrow">{{ company.subtitle }} · Colombo</p>
+        <h1 class="display-xl hero__title">
+          Print That Makes<br />Your Brand<br />Unignorable.
+        </h1>
+        <span class="cmyk-rule hero__rule" aria-hidden="true"></span>
+        <p class="lead hero__lead">
           Digital and offset printing for businesses that care how their brand feels in the hand —
           cards, packaging, banners, and everything between.
         </p>
         <div class="hero__actions">
-          <a routerLink="/contact" class="btn btn-primary" data-cursor="OPEN">Get a Quote</a>
-          <a routerLink="/work" class="btn btn-secondary">Explore Our Work</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero__stage container-wide">
-    <!-- Printing press animation -->
-    <div class="press-anim" appReveal aria-hidden="true">
-      <div class="press-anim__rail">
-        <span class="press-anim__mark">REGISTRATION</span>
-        <span class="press-anim__mark">CMYK</span>
-        <span class="press-anim__mark">300 GSM</span>
-      </div>
-
-      <div class="press">
-        <div class="press__roller press__roller--top"></div>
-
-        <div class="press__sheet">
-          <div class="plate plate--c"></div>
-          <div class="plate plate--m"></div>
-          <div class="plate plate--y"></div>
-          <div class="plate plate--k"></div>
-          <div class="press__scan"></div>
-        </div>
-
-        <div class="press__roller press__roller--bottom"></div>
-
-        <div class="press__inks">
-          <span class="ink ink--c"></span>
-          <span class="ink ink--m"></span>
-          <span class="ink ink--y"></span>
-          <span class="ink ink--k"></span>
+          <a href="#quote" class="btn btn-primary">Get a Quote</a>
+          <a href="#work" class="btn btn-secondary">Explore Our Work</a>
         </div>
       </div>
     </div>
 
-    <!-- Finished output -->
-    <figure class="hero__output" appReveal="reveal-delay-2">
-      <img
-        src="assets/images/print/hero-cmyk-composition.webp"
-        alt="Printed brand materials — business cards, brochures, stickers, and packaging"
-        width="1152"
-        height="864"
-        fetchpriority="high"
-      />
-      <figcaption>Finished output</figcaption>
-    </figure>
-  </div>
+    <div class="hero__press" appReveal="right reveal-delay-2" aria-hidden="true">
+      <div class="sim">
+        <div class="sim__status">
+          <span class="sim__live"><i></i> Press running</span>
+          <span class="sim__meter">CMYK · continuous feed</span>
+        </div>
 
-  <div class="hero__ticker" aria-hidden="true">
-    <div class="marquee-track">
-      @for (item of ticker; track $index) {
-        <span>{{ item }}</span>
-      }
+        <div class="sim__machine">
+          <img
+            class="sim__line"
+            src="assets/images/print/press-line-base.webp"
+            width="960"
+            height="540"
+            alt=""
+            loading="eager"
+            decoding="async"
+          />
+
+          <div class="sim__hood" aria-hidden="true">
+            <div class="sim__hood-bar">
+              <span class="sim__led is-on"></span>
+              <span class="sim__led is-on"></span>
+              <span class="sim__led"></span>
+              <em>FEED</em>
+              <b>12k/hr</b>
+              <em>DELIVERY</em>
+              <span class="sim__led is-on"></span>
+              <span class="sim__led is-warn"></span>
+            </div>
+            <div class="sim__grippers">
+              <i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="sim__fountains">
+              <span data-ink="c"></span>
+              <span data-ink="m"></span>
+              <span data-ink="y"></span>
+              <span data-ink="k"></span>
+            </div>
+          </div>
+
+          <div class="sim__rollers">
+            <img
+              src="assets/images/print/press-rollers-realistic.webp"
+              width="960"
+              height="540"
+              alt=""
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+
+          <div class="sim__nip"></div>
+          <div class="sim__scan"></div>
+
+          <div class="sim__feed">
+            <div class="sim__stack">
+              <i></i><i></i><i></i>
+              <img src="assets/images/print/press-feed-stack.webp" alt="" />
+            </div>
+            <span>FEED</span>
+          </div>
+
+          <div class="sim__delivery">
+            <div class="sim__stack sim__stack--out">
+              <i></i><i></i><i></i>
+              <img src="assets/images/print/press-delivery-stack.webp" alt="" />
+            </div>
+            <span>OUT</span>
+          </div>
+
+          <div class="sim__path">
+            @for (sheet of sheets; track sheet) {
+              <div class="sim__sheet" [style.--d]="sheet + 's'">
+                <img class="sim__face sim__face--blank" src="assets/images/print/press-sheet-blank-v2.webp" alt="" />
+                <img class="sim__face sim__face--cyan" src="assets/images/print/press-sheet-cyan-v2.webp" alt="" />
+                <img class="sim__face sim__face--final" src="assets/images/print/press-sheet-final-v2.webp" alt="" />
+              </div>
+            }
+          </div>
+
+          <div class="sim__deck" aria-hidden="true">
+            <div class="sim__belt">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="sim__cylinder">
+              <span></span>
+            </div>
+            <div class="sim__units">
+              <span data-ink="c">C</span>
+              <span data-ink="m">M</span>
+              <span data-ink="y">Y</span>
+              <span data-ink="k">K</span>
+            </div>
+            <div class="sim__guides">
+              <em></em><em></em><em></em>
+            </div>
+          </div>
+        </div>
+
+        <p class="sim__caption">Sheet in → colour down → stack out · looping press cycle</p>
+      </div>
     </div>
   </div>
 </section>

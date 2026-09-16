@@ -1,12 +1,38 @@
-import { NavLink, ProcessStep, ValueProp } from '../models';
+import { NavGroup, NavLink, ProcessStep, ValueProp } from '../models';
 
-export const NAV_LINKS: NavLink[] = [
-  { label: 'Home', path: '/' },
-  { label: 'Services', path: '/services' },
-  { label: 'Our Work', path: '/work' },
-  { label: 'About', path: '/about' },
-  { label: 'Contact', path: '/contact' }
+/** Compact primary nav with category dropdowns */
+export const NAV_GROUPS: NavGroup[] = [
+  { label: 'Home', section: 'top' },
+  {
+    label: 'Print',
+    children: [
+      { label: 'Services', section: 'services' },
+      { label: 'Featured', section: 'featured' },
+      { label: 'Finishes', section: 'finishes' },
+      { label: 'Our Work', section: 'work' }
+    ]
+  },
+  { label: 'Process', section: 'process' },
+  {
+    label: 'Company',
+    children: [
+      { label: 'About', section: 'about' },
+      { label: 'Why Us', section: 'why' },
+      { label: 'Reviews', section: 'testimonials' },
+      { label: 'FAQ', section: 'faq' }
+    ]
+  },
+  { label: 'Contact', section: 'contact' }
 ];
+
+/** Flat section list for scroll-spy + footer */
+export const NAV_LINKS: NavLink[] = NAV_GROUPS.flatMap((group) =>
+  group.children?.length
+    ? group.children
+    : group.section
+      ? [{ label: group.label, section: group.section }]
+      : []
+);
 
 export const TRUST_ITEMS: ValueProp[] = [
   {
@@ -33,34 +59,24 @@ export const TRUST_ITEMS: ValueProp[] = [
 
 export const WHY_ITEMS: ValueProp[] = [
   {
-    id: 'quality-print',
-    title: 'Quality Printing',
-    description: 'Digital and offset output with sharp detail and consistent colour.'
+    id: 'colour',
+    title: 'Colour that holds',
+    description: 'Calibrated CMYK on every run — sharp brand colour from first sheet to last.'
   },
   {
-    id: 'finishing',
-    title: 'Professional Finishing',
-    description: 'Matte, gloss, foil, emboss, and other finishes that elevate the piece.'
+    id: 'finish',
+    title: 'Finish with intent',
+    description: 'Matte, gloss, foil, and emboss chosen to match how your piece should feel in hand.'
   },
   {
-    id: 'reliable',
-    title: 'Reliable Turnaround',
-    description: 'Production planned so your brand materials arrive when needed.'
+    id: 'timing',
+    title: 'Timing you can plan',
+    description: 'Clear production schedules and reliable handoff so campaigns stay on track.'
   },
   {
-    id: 'creative',
-    title: 'Creative Support',
-    description: 'Help shaping artwork so it prints cleanly and looks intentional.'
-  },
-  {
-    id: 'custom-solutions',
-    title: 'Custom Solutions',
-    description: 'From stationery sets to packaging and large-format displays.'
-  },
-  {
-    id: 'detail',
-    title: 'Attention to Detail',
-    description: 'Registration, trim, stock choice — the small things that make print feel premium.'
+    id: 'care',
+    title: 'Care from brief to pack',
+    description: 'Guided support through artwork checks, proofs, and final delivery — not just a print job.'
   }
 ];
 

@@ -5,6 +5,7 @@ import {
   Validators
 } from '@angular/forms';
 import { SERVICES } from '../../data/services';
+import { COMPANY, WHATSAPP_URL } from '../../data/company';
 
 @Component({
   selector: 'app-quote-form',
@@ -36,7 +37,29 @@ export class QuoteFormComponent {
       this.form.markAllAsTouched();
       return;
     }
-    // Frontend-only demo submission — no backend send
+
+    const value = this.form.getRawValue();
+    const serviceName =
+      this.services.find((s) => s.slug === value.service)?.name || value.service;
+
+    const lines = [
+      `Hello ${COMPANY.name}, I would like a print quote.`,
+      '',
+      `Name: ${value.name}`,
+      value.company ? `Company: ${value.company}` : null,
+      `Email: ${value.email}`,
+      `Phone: ${value.phone}`,
+      `Service: ${serviceName}`,
+      value.quantity ? `Quantity: ${value.quantity}` : null,
+      value.deadline ? `Deadline: ${value.deadline}` : null,
+      '',
+      'Message:',
+      value.message
+    ].filter((line): line is string => line !== null);
+
+    const url = `${WHATSAPP_URL}?text=${encodeURIComponent(lines.join('\n'))}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+
     this.submitted.set(true);
     this.form.reset();
   }

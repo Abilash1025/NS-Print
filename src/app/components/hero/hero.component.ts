@@ -1,28 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { COMPANY } from '../../data/company';
 import { RevealDirective } from '../../shared/reveal.directive';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [RouterLink, RevealDirective],
+  imports: [RevealDirective],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })
 export class HeroComponent {
   readonly company = COMPANY;
-
-  private readonly tickerItems = [
-    'BUSINESS CARDS',
-    'BROCHURES',
-    'PACKAGING',
-    'STICKERS',
-    'BANNERS',
-    'INVITATIONS',
-    'MENUS',
-    'CATALOGUES'
-  ];
-
-  readonly ticker = [...this.tickerItems, ...this.tickerItems];
+  /** Staggered sheet delays for continuous feed loop */
+  readonly sheets = [0, 1.6, 3.2, 4.8];
 }

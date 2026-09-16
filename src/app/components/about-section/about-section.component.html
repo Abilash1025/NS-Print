@@ -1,46 +1,47 @@
-<section class="ab section" [class.is-compact]="compact()">
-  <div class="container-wide ab__grid">
-    <div class="ab__media" appReveal>
-      <img
-        class="ab__img"
-        src="assets/images/print/print-press-macro.webp"
-        alt="Offset printing press rollers carrying cyan, magenta, yellow and black ink"
-        loading="lazy"
-      />
-      <div class="ab__strip" aria-hidden="true">
-        <span></span><span></span><span></span><span></span>
+<section class="ab section section-canvas" id="about">
+  <div class="container ab__board">
+    <div class="ab__media" appReveal="left">
+      <div class="ab__frame">
+        <img
+          class="ab__img"
+          src="assets/images/print/about-atelier.webp"
+          alt="Printed samples and CMYK press rollers at NS Print Mart"
+          loading="lazy"
+          width="900"
+          height="1200"
+        />
+        <div class="ab__badge">
+          <span>{{ company.tagline }}</span>
+        </div>
       </div>
     </div>
 
-    <div class="ab__copy" appReveal="reveal-delay-2">
+    <div class="ab__copy" appReveal="right reveal-delay-2">
       <p class="eyebrow">About {{ company.name }}</p>
       <h2 class="display-md">More Than Printing.<br />We Help Brands Show Up.</h2>
-      <p class="lead" style="margin-top: 1.25rem">{{ company.description }}</p>
-      <p class="ab__body">
-        Based in Colombo, we run digital and offset print for businesses that want materials with
-        presence — sharp colour, considered finishing, and a process that stays clear from brief to
-        delivery.
+      <p class="lead ab__lead">
+        Digital and offset print from Colombo — sharp colour, considered finishing, clear process.
       </p>
-      <blockquote class="ab__quote">
-        We don't just print. We create impressions that last.
-      </blockquote>
-      <dl class="ab__facts">
-        <div>
-          <dt>Location</dt>
-          <dd>Colombo 13, Sri Lanka</dd>
-        </div>
-        <div>
-          <dt>Capability</dt>
-          <dd>{{ company.subtitle }}</dd>
-        </div>
-        <div>
-          <dt>Promise</dt>
-          <dd>{{ company.tagline }}</dd>
-        </div>
-      </dl>
-      @if (compact()) {
-        <a routerLink="/about" class="btn btn-secondary ab__cta">About us</a>
-      }
+
+      <ul class="ab__points">
+        <li>
+          <span class="ab__dot" data-ink="0"></span>
+          <span>Consistent CMYK colour</span>
+        </li>
+        <li>
+          <span class="ab__dot" data-ink="1"></span>
+          <span>Finishing that elevates</span>
+        </li>
+        <li>
+          <span class="ab__dot" data-ink="2"></span>
+          <span>Reliable turnaround</span>
+        </li>
+      </ul>
+
+      <div class="ab__foot">
+        <p class="ab__place">Colombo 13 · Sri Lanka</p>
+        <a href="#quote" class="btn btn-primary ab__cta">Talk to us</a>
+      </div>
     </div>
   </div>
 </section>

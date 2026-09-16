@@ -83,11 +83,21 @@ export interface FinishOption {
   id: string;
   label: string;
   description: string;
+  image: string;
 }
 
 export interface NavLink {
   label: string;
-  path: string;
+  /** Same-page section id (without #) */
+  section: string;
+}
+
+export interface NavGroup {
+  label: string;
+  /** Direct section when this is a simple top-level link */
+  section?: string;
+  /** Nested links shown in a dropdown / mobile category */
+  children?: NavLink[];
 }
 
 export interface ValueProp {

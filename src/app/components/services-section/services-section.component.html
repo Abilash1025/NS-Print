@@ -1,5 +1,5 @@
-<section class="services section">
-  <div class="container-wide">
+<section class="services section section-canvas" id="services">
+  <div class="container">
     @if (showHeader()) {
       <div class="head-split" appReveal>
         <div>
@@ -7,46 +7,56 @@
           <h2 class="display-md">What Can We Print For You?</h2>
         </div>
         <p class="lead">
-          Twelve print categories, from everyday business stationery to large-format displays.
-          Pick one and tell us what you need.
+          Twelve print categories — tap a card for details and a quote request.
         </p>
       </div>
     }
 
-    <div class="services__list">
+    <div class="services__grid" appReveal="stagger">
       @for (service of services; track service.id; let i = $index) {
-        <a
-          class="srv"
-          [routerLink]="['/services', service.slug]"
-          appReveal
-          data-cursor="VIEW"
+        <button
+          type="button"
+          class="srv anim-card"
+          [style.--i]="i"
+          (click)="open(service)"
         >
-          <span class="srv__num num-label">{{ service.id }}</span>
+          <span class="anim-card__shine" aria-hidden="true"></span>
 
-          <span class="srv__name">
+          <span class="srv__img">
+            <picture>
+              <source [srcset]="service.image" type="image/webp" />
+              <img
+                [src]="pngSrc(service.image)"
+                [alt]="service.name"
+                width="640"
+                height="480"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            <span class="srv__scan" aria-hidden="true"></span>
+            <span class="srv__marks" aria-hidden="true">
+              <i></i><i></i><i></i><i></i>
+            </span>
+            <span class="srv__badge">{{ service.id }}</span>
+          </span>
+
+          <span class="srv__body">
+            <span class="srv__meta">
+              <span class="srv__cat">{{ service.categoryLabel }}</span>
+              <span class="srv__arrow" aria-hidden="true">
+                <span>→</span>
+              </span>
+            </span>
             <h3>{{ service.name }}</h3>
-            <span class="srv__cat">{{ service.categoryLabel }}</span>
+            <p>{{ service.shortDescription }}</p>
           </span>
-
-          <span class="srv__desc">{{ service.shortDescription }}</span>
-
-          <span class="srv__arrow" aria-hidden="true">
-            <svg width="22" height="10" viewBox="0 0 22 10" fill="none">
-              <path d="M0 5h20M16 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" />
-            </svg>
-          </span>
-
-          <span class="srv__peek" [attr.data-ink]="i % 4">
-            <img [src]="service.image" [alt]="service.name" loading="lazy" />
-          </span>
-        </a>
+        </button>
       }
     </div>
-
-    @if (limit()) {
-      <div class="services__more" appReveal>
-        <a routerLink="/services" class="btn btn-secondary">View all services</a>
-      </div>
-    }
   </div>
+
+  @if (selected(); as service) {
+    <app-service-modal [service]="service" (closed)="close()" />
+  }
 </section>

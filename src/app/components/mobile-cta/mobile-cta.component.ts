@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { WHATSAPP_URL } from '../../data/company';
 
 @Component({
   selector: 'app-mobile-cta',
   standalone: true,
-  imports: [RouterLink],
+  imports: [],
   template: `
     <div class="mobile-cta" aria-label="Quick actions">
-      <a routerLink="/contact" class="mobile-cta__quote">Get a Quote</a>
+      <a href="#quote" class="mobile-cta__quote">Get a Quote</a>
       <a [href]="whatsapp" target="_blank" rel="noopener noreferrer" class="mobile-cta__wa">
         WhatsApp
       </a>
@@ -33,21 +32,22 @@ import { WHATSAPP_URL } from '../../data/company';
           border-top: 3px solid transparent;
           border-image: linear-gradient(
               90deg,
-              var(--brand-cyan) 0 25%,
-              var(--brand-magenta) 25% 50%,
-              var(--brand-yellow) 50% 75%,
-              #fff 75%
+              var(--brand-gray) 0 50%,
+              var(--brand-charcoal) 50%
             )
             1;
         }
 
         .mobile-cta a {
           text-align: center;
-          padding: 0.95rem 0.5rem;
-          font-size: 0.78rem;
+          min-height: 48px;
+          padding: 0.9rem 0.4rem;
+          font-size: 0.68rem;
           font-weight: 800;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
+          display: grid;
+          place-items: center;
         }
 
         .mobile-cta__quote {

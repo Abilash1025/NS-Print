@@ -1,10 +1,10 @@
 <header class="nav" [class.is-scrolled]="scrolled()" [class.is-open]="menuOpen()">
-  <div class="nav__inner container-wide" data-nav-inner>
-    <a routerLink="/" class="nav__brand" (click)="closeMenu()" aria-label="NS Print Mart home">
+  <div class="nav__inner container-wide">
+    <a href="#top" class="nav__brand" (click)="goTo('top', $event)" aria-label="NS Print Mart home">
       <img
         src="assets/logos/logo-nav.webp"
-        width="120"
-        height="94"
+        width="96"
+        height="76"
         alt="NS Print Mart"
         class="nav__logo"
       />
@@ -15,20 +15,60 @@
     </a>
 
     <nav class="nav__links" aria-label="Primary">
-      @for (link of links; track link.path) {
-        <a
-          [routerLink]="link.path"
-          routerLinkActive="is-active"
-          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
-          class="nav__link"
-        >
-          {{ link.label }}
-        </a>
+      @for (group of groups; track group.label) {
+        @if (group.children?.length) {
+          <div
+            class="nav__item nav__item--has-menu"
+            [class.is-open]="openGroup() === group.label"
+            (mouseenter)="openDesktopGroup(group.label)"
+            (mouseleave)="scheduleCloseDesktopGroup(group.label)"
+          >
+            <button
+              type="button"
+              class="nav__link nav__link--menu"
+              [class.is-active]="isGroupActive(group)"
+              [attr.aria-expanded]="openGroup() === group.label"
+              [attr.aria-controls]="'nav-menu-' + group.label"
+              (click)="toggleDesktopGroup(group.label, $event)"
+            >
+              {{ group.label }}
+              <span class="nav__caret" aria-hidden="true"></span>
+            </button>
+
+            <div
+              class="nav__dropdown"
+              [id]="'nav-menu-' + group.label"
+              role="menu"
+              [attr.aria-hidden]="openGroup() !== group.label"
+            >
+              @for (child of group.children; track child.section) {
+                <a
+                  role="menuitem"
+                  [href]="'#' + child.section"
+                  class="nav__drop-link"
+                  [class.is-active]="activeSection() === child.section"
+                  (click)="goTo(child.section, $event)"
+                >
+                  {{ child.label }}
+                </a>
+              }
+            </div>
+          </div>
+        } @else if (group.section) {
+          <a
+            [href]="'#' + group.section"
+            class="nav__link"
+            [class.is-active]="activeSection() === group.section"
+            (click)="goTo(group.section, $event)"
+          >
+            {{ group.label }}
+          </a>
+        }
       }
     </nav>
 
     <div class="nav__actions">
-      <a routerLink="/contact" class="btn btn-primary nav__cta">Get a Quote</a>
+      <a href="#quote" class="btn btn-primary nav__cta" (click)="goTo('quote', $event)">Get a Quote</a>
       <button
         type="button"
         class="nav__burger"
@@ -46,17 +86,42 @@
 
   <div id="mobile-menu" class="nav__mobile" [class.is-open]="menuOpen()" [attr.aria-hidden]="!menuOpen()">
     <nav aria-label="Mobile">
-      @for (link of links; track link.path) {
-        <a
-          [routerLink]="link.path"
-          routerLinkActive="is-active"
-          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
-          (click)="closeMenu()"
-        >
-          {{ link.label }}
-        </a>
+      @for (group of groups; track group.label) {
+        @if (group.children?.length) {
+          <div class="nav__mobile-group" [class.is-open]="mobileOpenGroup() === group.label">
+            <button
+              type="button"
+              class="nav__mobile-toggle"
+              [class.is-active]="isGroupActive(group)"
+              [attr.aria-expanded]="mobileOpenGroup() === group.label"
+              (click)="toggleMobileGroup(group.label)"
+            >
+              {{ group.label }}
+              <span class="nav__caret" aria-hidden="true"></span>
+            </button>
+            <div class="nav__mobile-children">
+              @for (child of group.children; track child.section) {
+                <a
+                  [href]="'#' + child.section"
+                  [class.is-active]="activeSection() === child.section"
+                  (click)="goTo(child.section, $event)"
+                >
+                  {{ child.label }}
+                </a>
+              }
+            </div>
+          </div>
+        } @else if (group.section) {
+          <a
+            [href]="'#' + group.section"
+            [class.is-active]="activeSection() === group.section"
+            (click)="goTo(group.section, $event)"
+          >
+            {{ group.label }}
+          </a>
+        }
       }
-      <a routerLink="/contact" class="btn btn-primary" (click)="closeMenu()">Get a Quote</a>
+      <a href="#quote" class="btn btn-primary" (click)="goTo('quote', $event)">Get a Quote</a>
     </nav>
   </div>
 </header>

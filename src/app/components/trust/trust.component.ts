@@ -7,73 +7,109 @@ import { RevealDirective } from '../../shared/reveal.directive';
   standalone: true,
   imports: [RevealDirective],
   template: `
-    <section class="trust">
-      <div class="container-wide trust__row">
-        @for (item of items; track item.id; let i = $index) {
-          <article class="trust__cell" [appReveal]="'reveal-delay-' + (i + 1)">
-            <span class="trust__bar" [attr.data-ink]="i"></span>
-            <h2>{{ item.title }}</h2>
-            <p>{{ item.description }}</p>
+    <section class="trust section-canvas">
+      <div class="container trust__wrap">
+        <div class="trust__intro" appReveal>
+          <p class="eyebrow">What sets us apart</p>
+          <h2 class="display-md">Built for brands that notice the details</h2>
+        </div>
+
+        <div class="trust__grid" appReveal="stagger">
+          <article class="trust__visual elev-card">
+            <img
+              src="assets/images/print/trust-quality-paper.webp"
+              alt="Premium paper stock stack"
+              loading="lazy"
+            />
           </article>
-        }
+
+          @for (item of items; track item.id; let i = $index) {
+            <article class="trust__cell elev-card">
+              <span class="trust__index" [attr.data-ink]="i">0{{ i + 1 }}</span>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </article>
+          }
+        </div>
       </div>
     </section>
   `,
   styles: [
     `
       .trust {
-        padding-block: clamp(1.75rem, 3vw, 2.75rem);
+        padding-block: var(--section-space-tight);
       }
 
-      .trust__row {
+      .trust__intro {
+        margin-bottom: 1rem;
+        max-width: 28rem;
+      }
+
+      .trust__grid {
         display: grid;
-        gap: 1px;
-        background: var(--border);
+        gap: 0.85rem;
       }
 
-      @media (min-width: 640px) {
-        .trust__row {
-          grid-template-columns: repeat(2, 1fr);
+      @media (min-width: 720px) {
+        .trust__grid {
+          grid-template-columns: 1.1fr 1fr 1fr;
+          grid-template-rows: auto auto;
+        }
+
+        .trust__visual {
+          grid-row: span 2;
         }
       }
 
-      @media (min-width: 1000px) {
-        .trust__row {
-          grid-template-columns: repeat(4, 1fr);
-        }
+      .trust__visual {
+        overflow: hidden;
+        min-height: 160px;
+        background: #fff;
+      }
+
+      .trust__visual img {
+        width: 100%;
+        height: 100%;
+        min-height: 180px;
+        object-fit: cover;
       }
 
       .trust__cell {
-        position: relative;
-        background: var(--surface);
-        padding: 1.35rem 1.5rem 1.5rem;
+        padding: 1rem 1.05rem 1.1rem;
+        background: #fff;
+        transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
       }
 
-      .trust__bar {
-        display: block;
-        width: 2.25rem;
-        height: 4px;
-        margin-bottom: 1rem;
-        transition: width var(--duration) var(--ease-out);
+      .trust__cell:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--elev-2);
       }
 
-      .trust__bar[data-ink='0'] { background: var(--brand-cyan); }
-      .trust__bar[data-ink='1'] { background: var(--brand-magenta); }
-      .trust__bar[data-ink='2'] { background: var(--brand-yellow); }
-      .trust__bar[data-ink='3'] { background: var(--text-primary); }
-
-      .trust__cell:hover .trust__bar {
-        width: 4.5rem;
+      .trust__index {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 2rem;
+        padding: 0.2rem 0.45rem;
+        margin-bottom: 0.55rem;
+        border-radius: 999px;
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: #fff;
       }
 
-      .trust__cell h2 {
-        font-size: 1.15rem;
-        margin-bottom: 0.4rem;
+      .trust__index[data-ink='0'] { background: var(--brand-gray); }
+      .trust__index[data-ink='1'] { background: var(--brand-charcoal); }
+      .trust__index[data-ink='2'] { background: #9a9592; color: #fff; }
+      .trust__index[data-ink='3'] { background: var(--brand-ink); }
+
+      .trust__cell h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.3rem;
       }
 
       .trust__cell p {
-        font-size: 0.9rem;
-        max-width: 22rem;
+        font-size: 0.8rem;
       }
     `
   ]

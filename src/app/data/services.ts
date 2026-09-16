@@ -12,7 +12,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: 'First impressions that feel substantial in the hand.',
     description:
       'Premium business cards with stock and finish options that match your brand — clean, sharp, and ready to exchange.',
-    image: `${IMG}/cmyk-business-cards.webp`,
+    image: `${IMG}/srv-cards.webp`,
     features: ['Multiple stocks', 'Matte or gloss', 'Foil options', 'Rounded corners'],
     accent: 'cyan'
   },
@@ -25,7 +25,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: 'Campaign pieces built to be held, shared, and remembered.',
     description:
       'From single-sheet flyers to multi-fold brochures — designed for clarity, colour, and a polished fold.',
-    image: `${IMG}/cmyk-brochures.webp`,
+    image: `${IMG}/srv-brochures.webp`,
     features: ['Tri-fold & bi-fold', 'Campaign sets', 'High-colour output', 'Custom sizes'],
     accent: 'magenta'
   },
@@ -38,7 +38,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: 'Bold visuals that stop people in their tracks.',
     description:
       'Indoor and event posters with crisp type and vibrant colour for launches, promotions, and displays.',
-    image: `${IMG}/print-brochures.webp`,
+    image: `${IMG}/srv-posters.webp`,
     features: ['Multiple sizes', 'Vibrant colour', 'Event ready', 'Short runs welcome'],
     accent: 'yellow'
   },
@@ -51,7 +51,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: 'Print-and-cut stickers with clean edges and strong adhesion.',
     description:
       'Custom stickers and labels for packaging, branding, and promotions — shaped, cut, and finished for real-world use.',
-    image: `${IMG}/cmyk-stickers.webp`,
+    image: `${IMG}/srv-stickers.webp`,
     features: ['Die-cut shapes', 'Vinyl options', 'Sheet or single', 'Brand colours'],
     accent: 'magenta'
   },
@@ -64,7 +64,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: 'Elegant invitations for weddings, events, and celebrations.',
     description:
       'Invitation suites with refined typography and finishing details that feel personal and premium.',
-    image: `${IMG}/print-invitations.webp`,
+    image: `${IMG}/srv-invites.webp`,
     features: ['Event suites', 'Foil & emboss', 'Envelope sets', 'Custom layouts'],
     accent: 'cyan'
   },
@@ -77,7 +77,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: 'Menus that look as considered as the food they present.',
     description:
       'Restaurant and café menus printed for readability, durability, and a polished brand presence.',
-    image: `${IMG}/print-business-cards.webp`,
+    image: `${IMG}/srv-menus.webp`,
     features: ['Durable stocks', 'Lamination', 'Single or multi-page', 'Brand matching'],
     accent: 'yellow'
   },
@@ -90,7 +90,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: 'Bound pieces that present products with clarity and polish.',
     description:
       'Catalogues and booklets for product lines, lookbooks, and company presentations.',
-    image: `${IMG}/print-catalogues.webp`,
+    image: `${IMG}/srv-catalogues.webp`,
     features: ['Saddle stitch / perfect bind', 'Cover options', 'Internal pagination', 'Colour fidelity'],
     accent: 'cyan'
   },
@@ -103,7 +103,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: 'Corporate stationery that stays consistent across every touchpoint.',
     description:
       'Letterheads, envelopes, and matching stationery for a cohesive business identity.',
-    image: `${IMG}/print-stationery.webp`,
+    image: `${IMG}/srv-stationery.webp`,
     features: ['Matching sets', 'Corporate colours', 'Quality stock', 'Brand guideline friendly'],
     accent: 'magenta'
   },
@@ -115,7 +115,7 @@ export const SERVICES: ServiceItem[] = [
     categoryLabel: 'Promotional Printing',
     shortDescription: 'Wearable brand moments for teams, events, and campaigns.',
     description: 'Custom t-shirt printing for promotions, staff wear, and merch drops.',
-    image: `${IMG}/cmyk-promotional.webp`,
+    image: `${IMG}/srv-tshirts.webp`,
     features: ['Custom artwork', 'Event merch', 'Staff uniforms', 'Short & bulk runs'],
     accent: 'yellow'
   },
@@ -127,7 +127,7 @@ export const SERVICES: ServiceItem[] = [
     categoryLabel: 'Large Format',
     shortDescription: 'Large-format print that carries your message across the street.',
     description: 'Banners, roll-ups, and hoardings for outdoor and indoor visibility.',
-    image: `${IMG}/print-large-format.webp`,
+    image: `${IMG}/srv-banners.webp`,
     features: ['Outdoor durability', 'Roll-up stands', 'Site hoardings', 'Vivid colour'],
     accent: 'cyan'
   },
@@ -139,7 +139,7 @@ export const SERVICES: ServiceItem[] = [
     categoryLabel: 'Custom Printing',
     shortDescription: 'Packaging that makes unboxing part of the brand experience.',
     description: 'Custom boxes and packaging print for products that deserve a strong first open.',
-    image: `${IMG}/cmyk-packaging.webp`,
+    image: `${IMG}/srv-packaging.webp`,
     features: ['Custom structures', 'Brand finishes', 'Short runs', 'Presentation ready'],
     accent: 'magenta'
   },
@@ -152,7 +152,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription: 'Professional ID cards and badges for teams and events.',
     description:
       'Durable ID cards, lanyards, and badges with clear branding and practical finishing.',
-    image: `${IMG}/print-packaging.webp`,
+    image: `${IMG}/srv-idcards.webp`,
     features: ['PVC cards', 'Lanyards', 'Event badges', 'Secure layouts'],
     accent: 'yellow'
   }

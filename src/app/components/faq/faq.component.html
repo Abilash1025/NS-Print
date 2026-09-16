@@ -1,31 +1,50 @@
-<section class="faq section-tight section-soft">
-  <div class="container-wide faq__grid">
-    <div appReveal>
+<section class="faq section-tight section-canvas" id="faq">
+  <div class="container faq__grid">
+    <aside class="faq__intro elev-card" appReveal="left">
       <p class="eyebrow">FAQ</p>
       <h2 class="display-md">Questions Before<br />You Print</h2>
-      <p class="lead" style="margin-top: 1rem">
+      <p class="lead faq__lead">
         Quick answers about process, artwork, and starting a job.
       </p>
-    </div>
 
-    <div class="faq__list" appReveal="reveal-delay-2">
+      <div class="faq__aside-meta">
+        <span class="faq__count">{{ items.length }} topics</span>
+        <a href="#quote" class="btn btn-primary faq__cta">Ask for a quote</a>
+      </div>
+    </aside>
+
+    <div class="faq__list" appReveal="right reveal-delay-2" role="list">
       @for (item of items; track item.id; let i = $index) {
-        <div class="faq__item" [class.is-open]="openId() === item.id">
+        <div
+          class="faq__item elev-card"
+          [class.is-open]="openId() === item.id"
+          role="listitem"
+        >
           <button
             type="button"
             class="faq__q"
             (click)="toggle(item.id)"
             [attr.aria-expanded]="openId() === item.id"
+            [attr.aria-controls]="'faq-panel-' + item.id"
+            [id]="'faq-btn-' + item.id"
           >
-            <span class="num-label">0{{ i + 1 }}</span>
+            <span class="faq__num">0{{ i + 1 }}</span>
             <span class="faq__label">{{ item.question }}</span>
-            <span class="faq__icon" aria-hidden="true"></span>
+            <span class="faq__icon" aria-hidden="true">
+              <i></i><i></i>
+            </span>
           </button>
-          @if (openId() === item.id) {
-            <div class="faq__a">
+
+          <div
+            class="faq__panel"
+            [id]="'faq-panel-' + item.id"
+            role="region"
+            [attr.aria-labelledby]="'faq-btn-' + item.id"
+          >
+            <div class="faq__panel-inner">
               <p>{{ item.answer }}</p>
             </div>
-          }
+          </div>
         </div>
       }
     </div>

@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .elev-card {
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    box-shadow: var(--elev-2);
+  }
+
+  .elev-card-sm {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--elev-1);
+  }
+
+  .section-canvas {
+    background: #ffffff;
+  }
+}

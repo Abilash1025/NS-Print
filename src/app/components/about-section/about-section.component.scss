@@ -1,91 +1,162 @@
-.ab__grid {
+.ab__board {
   display: grid;
-  gap: 2rem;
-  align-items: start;
+  gap: 1rem;
+  align-items: stretch;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-@media (min-width: 960px) {
-  .ab__grid {
+@media (min-width: 900px) {
+  .ab__board {
     grid-template-columns: 0.95fr 1.05fr;
-    gap: 3.5rem;
+    gap: 1.35rem;
   }
 }
 
 .ab__media {
   position: relative;
+  display: flex;
+  min-height: 280px;
+}
+
+.ab__frame {
+  position: relative;
+  flex: 1;
+  min-height: 280px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--surface-dark);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 10px 24px rgba(23, 21, 22, 0.14),
+    0 28px 60px rgba(23, 21, 22, 0.2),
+    0 56px 120px rgba(23, 21, 22, 0.18);
 }
 
 .ab__img {
   width: 100%;
-  aspect-ratio: 1.1;
+  height: 100%;
+  min-height: 280px;
   object-fit: cover;
-  border: 1px solid var(--border);
+  display: block;
 }
 
-.ab__strip {
-  display: flex;
-  margin-top: 0;
+@media (min-width: 900px) {
+  .ab__media,
+  .ab__frame,
+  .ab__img {
+    min-height: 100%;
+  }
+
+  .ab__img {
+    position: absolute;
+    inset: 0;
+    min-height: 0;
+  }
 }
 
-.ab__strip span {
-  flex: 1;
-  height: 6px;
+.ab__badge {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 1.1rem;
+  z-index: 2;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: none;
+  backdrop-filter: blur(8px);
 }
 
-.ab__strip span:nth-child(1) { background: var(--brand-cyan); }
-.ab__strip span:nth-child(2) { background: var(--brand-magenta); }
-.ab__strip span:nth-child(3) { background: var(--brand-yellow); }
-.ab__strip span:nth-child(4) { background: var(--text-primary); }
-
-.ab__body {
-  margin-top: 1rem;
-  max-width: 34rem;
-}
-
-.ab__quote {
-  margin: 1.75rem 0 0;
-  padding-left: 1.15rem;
-  border-left: 3px solid var(--text-primary);
-  font-family: var(--font-display);
-  font-size: clamp(1.15rem, 2vw, 1.5rem);
+.ab__badge span {
+  font-size: 0.58rem;
   font-weight: 800;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--text-primary);
-  max-width: 26rem;
 }
 
-.ab__facts {
+.ab__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: clamp(0.25rem, 1vw, 0.5rem) 0;
+}
+
+@media (min-width: 900px) {
+  .ab__copy {
+    padding-right: 0.25rem;
+  }
+}
+
+.ab__copy .eyebrow,
+.ab__copy .display-md {
+  margin: 0;
+}
+
+.ab__lead {
+  margin: 0;
+  max-width: 32ch;
+}
+
+.ab__points {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
   display: grid;
-  gap: 0;
-  margin: 1.75rem 0 0;
+  gap: 0.45rem;
+}
+
+.ab__points li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.7rem;
+  background: #fff;
+  border: 0;
+  border-radius: var(--radius-md);
+  box-shadow: var(--elev-2);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ab__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: none;
+}
+
+.ab__dot[data-ink='0'] { background: var(--brand-gray); }
+.ab__dot[data-ink='1'] { background: var(--brand-charcoal); }
+.ab__dot[data-ink='2'] { background: var(--brand-ink); }
+
+.ab__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.55rem;
+  padding-top: 0.85rem;
   border-top: 1px solid var(--border);
 }
 
-.ab__facts > div {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-block: 0.7rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.ab__facts dt {
-  font-size: 0.66rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.ab__place {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   color: var(--text-muted);
 }
 
-.ab__facts dd {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  text-align: right;
-}
-
 .ab__cta {
-  margin-top: 1.5rem;
+  min-height: 2.15rem;
+  padding-inline: 0.95rem;
+  font-size: 0.72rem;
 }
