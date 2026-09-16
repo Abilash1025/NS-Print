@@ -4,7 +4,7 @@
   z-index: 2200;
   display: grid;
   place-items: center;
-  padding: 1rem;
+  padding: max(0.75rem, env(safe-area-inset-top)) 0.75rem max(0.75rem, env(safe-area-inset-bottom));
   overflow: hidden;
   overscroll-behavior: none;
   touch-action: none;
@@ -12,35 +12,35 @@
   backdrop-filter: blur(0);
   opacity: 0;
   transition:
-    opacity 280ms var(--ease-out),
-    background-color 280ms var(--ease-out),
-    backdrop-filter 280ms var(--ease-out);
+    opacity 260ms var(--ease-out),
+    background-color 260ms var(--ease-out),
+    backdrop-filter 260ms var(--ease-out);
 }
 
 .modal.is-visible {
   opacity: 1;
-  background: rgba(23, 21, 22, 0.52);
-  backdrop-filter: blur(10px);
+  background: rgba(23, 21, 22, 0.55);
+  backdrop-filter: blur(12px);
 }
 
 .modal__panel {
   position: relative;
-  width: min(920px, 100%);
-  max-height: min(90vh, 860px);
+  width: min(640px, 100%);
+  max-height: min(92vh, 820px);
   overflow: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
   background: #fff;
-  border-radius: 20px;
+  border-radius: 18px;
   box-shadow:
-    0 4px 16px rgba(23, 21, 22, 0.06),
-    0 28px 80px rgba(23, 21, 22, 0.22);
-  transform: translateY(28px) scale(0.96);
+    0 1px 0 rgba(255, 255, 255, 0.65) inset,
+    0 24px 64px rgba(23, 21, 22, 0.28);
+  transform: translateY(22px) scale(0.97);
   opacity: 0;
   transition:
-    transform 360ms var(--ease-out),
-    opacity 320ms var(--ease-out);
+    transform 340ms var(--ease-out),
+    opacity 300ms var(--ease-out);
 }
 
 .modal.is-visible .modal__panel {
@@ -49,24 +49,24 @@
 }
 
 .modal.is-closing .modal__panel {
-  transform: translateY(16px) scale(0.97);
+  transform: translateY(14px) scale(0.98);
   opacity: 0;
-  transition-duration: 280ms;
+  transition-duration: 240ms;
 }
 
 .modal__close {
   position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
+  top: 0.7rem;
+  right: 0.7rem;
   z-index: 5;
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: var(--elev-2);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
   cursor: pointer;
   display: grid;
   place-items: center;
@@ -77,7 +77,7 @@
 
 .modal__close span {
   position: absolute;
-  width: 14px;
+  width: 13px;
   height: 1.5px;
   background: var(--text-primary);
   border-radius: 1px;
@@ -100,156 +100,151 @@
   background: #fff;
 }
 
-.modal__layout {
-  display: grid;
-}
-
-@media (min-width: 860px) {
-  .modal__layout {
-    grid-template-columns: 0.95fr 1.05fr;
-    min-height: 520px;
-  }
-}
-
-.modal__aside {
-  display: flex;
-  flex-direction: column;
-  background: var(--surface-soft);
-}
-
-.modal__media {
+.modal__hero {
   position: relative;
   overflow: hidden;
-  background: #1a242e;
+  background: #171516;
 }
 
-.modal__media picture,
-.modal__media img {
+.modal__hero picture,
+.modal__hero img {
   display: block;
   width: 100%;
 }
 
-.modal__media img {
-  aspect-ratio: 1.35;
+.modal__hero img {
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  transform: scale(1.04);
+  transform: scale(1.05);
   transition: transform 700ms var(--ease-out);
 }
 
-.modal.is-visible .modal__media img {
+.modal.is-visible .modal__hero img {
   transform: scale(1);
 }
 
-.modal__media-overlay {
+.modal__hero-shade {
   position: absolute;
-  left: 0.85rem;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 42%, rgba(23, 21, 22, 0.55) 100%);
+  pointer-events: none;
+}
+
+.modal__hero-meta {
+  position: absolute;
+  left: 0.9rem;
   bottom: 0.85rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
 }
 
-.modal__badge {
-  padding: 0.3rem 0.55rem;
+.modal__chip {
+  padding: 0.28rem 0.55rem;
   border-radius: 999px;
-  background: rgba(23, 21, 22, 0.82);
+  background: rgba(23, 21, 22, 0.78);
   color: #fff;
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  backdrop-filter: blur(6px);
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
 }
 
-.modal__badge--cat {
-  background: rgba(255, 255, 255, 0.92);
+.modal__chip--light {
+  background: rgba(255, 255, 255, 0.94);
   color: var(--text-primary);
 }
 
-.modal__rule {
-  display: block;
-  height: 3px;
-}
-
-.modal__features {
-  list-style: none;
-  margin: 0;
-  padding: 0.9rem;
+.modal__content {
   display: grid;
-  gap: 0.45rem;
-  flex: 1;
+  gap: 0.95rem;
+  padding: 1.1rem 1.15rem 1.25rem;
 }
 
-.modal__features li {
-  display: flex;
-  gap: 0.65rem;
-  align-items: baseline;
-  padding: 0.65rem 0.75rem;
-  background: #fff;
-  border-radius: var(--radius-md);
-  box-shadow: var(--elev-1);
-  font-size: 0.8rem;
-  font-weight: 600;
-  opacity: 0;
-  transform: translateY(8px);
-  transition:
-    opacity 360ms var(--ease-out),
-    transform 360ms var(--ease-out);
-  transition-delay: calc(120ms + (var(--i, 0) * 60ms));
+.modal.is-visible .modal__content {
+  animation: modal-content-in 380ms var(--ease-out) both;
+  animation-delay: 60ms;
 }
 
-.modal.is-visible .modal__features li {
-  opacity: 1;
-  transform: none;
+.modal__head {
+  display: grid;
+  gap: 0.35rem;
 }
 
-.modal__feat-num {
-  font-size: 0.62rem;
+.modal__head .eyebrow {
+  margin-bottom: 0;
+}
+
+.modal__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3.5vw, 1.7rem);
   font-weight: 800;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-}
-
-.modal__body {
-  padding: 1.35rem 1.35rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.modal.is-visible .modal__body {
-  animation: modal-body-in 420ms var(--ease-out) both;
-  animation-delay: 80ms;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text-primary);
 }
 
 .modal__desc {
-  margin-top: 0.65rem;
-  max-width: 34rem;
+  margin: 0.15rem 0 0;
   font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.modal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.modal__tags li {
+  padding: 0.38rem 0.65rem;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  border: 1px solid rgba(23, 21, 22, 0.06);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
 }
 
 .modal__quote {
-  margin-top: auto;
-  padding-top: 1.15rem;
-}
-
-.modal__quote-head {
-  margin-bottom: 0.85rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border);
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.95rem;
+  border-radius: 14px;
+  background: #f7f6f4;
+  border: 1px solid rgba(23, 21, 22, 0.06);
 }
 
 .modal__quote-head h3 {
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
+  margin: 0 0 0.2rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .modal__quote-head p {
-  font-size: 0.78rem;
+  margin: 0;
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: var(--text-muted);
 }
 
-@keyframes modal-body-in {
+.modal__quote app-quote-form {
+  display: block;
+  width: 100%;
+}
+
+@keyframes modal-content-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -257,12 +252,52 @@
   }
 }
 
+@media (min-width: 720px) {
+  .modal__panel {
+    width: min(720px, 100%);
+  }
+
+  .modal__hero img {
+    aspect-ratio: 2.1 / 1;
+  }
+
+  .modal__content {
+    padding: 1.2rem 1.35rem 1.4rem;
+    gap: 1.05rem;
+  }
+
+  .modal__quote {
+    padding: 1.05rem 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 0.5rem;
+    align-items: end;
+  }
+
+  .modal__panel {
+    width: 100%;
+    max-height: min(94vh, 900px);
+    border-radius: 16px 16px 12px 12px;
+  }
+
+  .modal__hero img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .modal__content {
+    padding: 1rem 0.95rem calc(1rem + env(safe-area-inset-bottom, 0px));
+    gap: 0.85rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .modal,
   .modal__panel,
-  .modal__media img,
-  .modal__features li,
-  .modal__body {
+  .modal__hero img,
+  .modal__content {
     transition: none !important;
     animation: none !important;
   }
@@ -274,10 +309,5 @@
   .modal.is-visible .modal__panel {
     transform: none;
     opacity: 1;
-  }
-
-  .modal.is-visible .modal__features li {
-    opacity: 1;
-    transform: none;
   }
 }

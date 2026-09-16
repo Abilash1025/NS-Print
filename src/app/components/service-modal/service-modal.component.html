@@ -13,48 +13,43 @@
       <span aria-hidden="true"></span>
     </button>
 
-    <div class="modal__layout">
-      <aside class="modal__aside">
-        <div class="modal__media">
-          <picture>
-            <source [srcset]="service().image" type="image/webp" />
-            <img
-              [src]="pngSrc(service().image)"
-              [alt]="service().name"
-              width="800"
-              height="600"
-            />
-          </picture>
-          <div class="modal__media-overlay">
-            <span class="modal__badge">{{ service().id }}</span>
-            <span class="modal__badge modal__badge--cat">{{ service().categoryLabel }}</span>
-          </div>
-        </div>
-        <span class="cmyk-rule modal__rule" aria-hidden="true"></span>
-
-        <ul class="modal__features">
-          @for (feature of service().features; track feature; let i = $index) {
-            <li [style.--i]="i">
-              <span class="modal__feat-num">0{{ i + 1 }}</span>
-              <span>{{ feature }}</span>
-            </li>
-          }
-        </ul>
-      </aside>
-
-      <div class="modal__body">
-        <p class="eyebrow">Service detail</p>
-        <h2 class="display-md">{{ service().name }}</h2>
-        <p class="modal__desc">{{ service().description }}</p>
-
-        <div class="modal__quote">
-          <div class="modal__quote-head">
-            <h3>Request a quote</h3>
-            <p>Tell us quantity, size, and finish — we’ll come back with details.</p>
-          </div>
-          <app-quote-form />
-        </div>
+    <div class="modal__hero">
+      <picture>
+        <source [srcset]="service().image" type="image/webp" />
+        <img
+          [src]="pngSrc(service().image)"
+          [alt]="service().name"
+          width="960"
+          height="540"
+        />
+      </picture>
+      <div class="modal__hero-shade" aria-hidden="true"></div>
+      <div class="modal__hero-meta">
+        <span class="modal__chip">{{ service().id }}</span>
+        <span class="modal__chip modal__chip--light">{{ service().categoryLabel }}</span>
       </div>
+    </div>
+
+    <div class="modal__content">
+      <header class="modal__head">
+        <p class="eyebrow">Service detail</p>
+        <h2 class="modal__title">{{ service().name }}</h2>
+        <p class="modal__desc">{{ service().description }}</p>
+      </header>
+
+      <ul class="modal__tags" aria-label="What's included">
+        @for (feature of service().features; track feature) {
+          <li>{{ feature }}</li>
+        }
+      </ul>
+
+      <section class="modal__quote">
+        <div class="modal__quote-head">
+          <h3>Request a quote</h3>
+          <p>Quantity, size, and finish — we’ll reply with details.</p>
+        </div>
+        <app-quote-form />
+      </section>
     </div>
   </div>
 </div>

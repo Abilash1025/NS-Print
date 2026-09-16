@@ -6,6 +6,35 @@
   min-height: 0;
 }
 
+:host-context(.modal__quote) {
+  display: block;
+  flex: none;
+  height: auto;
+  min-height: 0;
+}
+
+:host-context(.modal__quote) .quote,
+:host-context(.modal__quote) .quote__form,
+:host-context(.modal__quote) .quote__success {
+  display: block;
+  height: auto;
+  flex: none;
+}
+
+:host-context(.modal__quote) .quote__grid {
+  margin-bottom: 0.85rem;
+}
+
+:host-context(.modal__quote) .quote__form > .btn-primary {
+  width: 100%;
+  margin-top: 0.15rem;
+}
+
+:host-context(.modal__quote) .quote__note {
+  margin-top: 0.65rem;
+  padding-top: 0;
+}
+
 .quote {
   display: flex;
   flex-direction: column;
