@@ -35,6 +35,36 @@
   padding-top: 0;
 }
 
+:host-context(.home-contact__form) {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+:host-context(.home-contact__form) .quote,
+:host-context(.home-contact__form) .quote__form {
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+}
+
+:host-context(.home-contact__form) .quote__grid {
+  flex: 0 0 auto;
+  margin-bottom: 0.65rem;
+}
+
+:host-context(.home-contact__form) .quote__form > .btn-primary {
+  width: 100%;
+  margin-top: auto;
+}
+
+:host-context(.home-contact__form) .quote__note {
+  margin-top: 0.55rem;
+  padding-top: 0;
+}
+
 .quote {
   display: flex;
   flex-direction: column;
