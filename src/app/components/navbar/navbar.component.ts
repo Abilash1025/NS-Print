@@ -23,13 +23,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   private readonly scroll = inject(ScrollService);
   private closeTimer: ReturnType<typeof setTimeout> | null = null;
+  private scrollLockTimer: ReturnType<typeof setTimeout> | null = null;
+  /** While set, scroll-spy won't overwrite the hash mid-animation. */
+  private scrollingTo: string | null = null;
 
   ngOnInit(): void {
-    this.updateActiveSection();
+    this.updateActiveSection(true);
   }
 
   ngOnDestroy(): void {
     this.clearCloseTimer();
+    if (this.scrollLockTimer) {
+      clearTimeout(this.scrollLockTimer);
+    }
   }
 
   @HostListener('window:scroll')
@@ -102,15 +108,27 @@ export class NavbarComponent implements OnInit, OnDestroy {
   goTo(section: string, event?: Event): void {
     event?.preventDefault();
     this.closeMenu();
+    this.lockScrollSpy(section);
+    this.activeSection.set(section);
+    this.syncHash(section, true);
+
     if (section === 'top') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      this.activeSection.set('top');
-      history.replaceState(null, '', '#top');
       return;
     }
-    this.activeSection.set(section);
+
     this.scroll.scrollTo(section);
-    history.replaceState(null, '', `#${section}`);
+  }
+
+  private lockScrollSpy(section: string): void {
+    this.scrollingTo = section;
+    if (this.scrollLockTimer) {
+      clearTimeout(this.scrollLockTimer);
+    }
+    this.scrollLockTimer = setTimeout(() => {
+      this.scrollingTo = null;
+      this.updateActiveSection(true);
+    }, 900);
   }
 
   private isDesktopNav(): boolean {
@@ -124,35 +142,54 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
   }
 
-  private updateActiveSection(): void {
+  private syncHash(section: string, force = false): void {
+    if (!force && this.scrollingTo) {
+      return;
+    }
+
+    const next = `#${section}`;
+    if (location.hash === next) {
+      return;
+    }
+
+    const base = `${location.pathname}${location.search}`;
+    history.replaceState(null, '', `${base}${next}`);
+  }
+
+  private updateActiveSection(forceHash = false): void {
     const offset = 130;
     const ids = this.links.map((l) => l.section);
     let current = 'top';
 
     const doc = document.documentElement;
     if (window.innerHeight + window.scrollY >= doc.scrollHeight - 40) {
-      this.activeSection.set(ids[ids.length - 1] ?? 'contact');
-      return;
+      current = ids[ids.length - 1] ?? 'contact';
+    } else {
+      for (const id of ids) {
+        if (id === 'top') {
+          continue;
+        }
+        const el = document.getElementById(id);
+        if (!el) {
+          continue;
+        }
+        const top = el.getBoundingClientRect().top;
+        if (top <= offset) {
+          current = id;
+        }
+      }
+
+      if (window.scrollY < 40) {
+        current = 'top';
+      }
     }
 
-    for (const id of ids) {
-      if (id === 'top') {
-        continue;
-      }
-      const el = document.getElementById(id);
-      if (!el) {
-        continue;
-      }
-      const top = el.getBoundingClientRect().top;
-      if (top <= offset) {
-        current = id;
-      }
+    if (this.activeSection() !== current) {
+      this.activeSection.set(current);
     }
 
-    if (window.scrollY < 40) {
-      current = 'top';
+    if (forceHash || !this.scrollingTo) {
+      this.syncHash(current, forceHash);
     }
-
-    this.activeSection.set(current);
   }
 }

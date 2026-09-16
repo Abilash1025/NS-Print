@@ -26,10 +26,10 @@ export class FooterComponent {
     event?.preventDefault();
     if (section === 'top') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      history.replaceState(null, '', '#top');
-      return;
+    } else {
+      this.scroll.scrollTo(section);
     }
-    this.scroll.scrollTo(section);
-    history.replaceState(null, '', `#${section}`);
+    const base = `${location.pathname}${location.search}`;
+    history.replaceState(null, '', `${base}#${section}`);
   }
 }
