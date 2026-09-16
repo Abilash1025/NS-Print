@@ -59,11 +59,13 @@ export class ServiceModalComponent implements OnInit, OnDestroy {
     this.closing.set(true);
     this.visible.set(false);
 
+    // Restore page scroll immediately so the page does not jump after the fade
+    this.releaseLock();
+
     if (this.closeTimer) {
       clearTimeout(this.closeTimer);
     }
     this.closeTimer = setTimeout(() => {
-      this.releaseLock();
       this.closed.emit();
     }, 320);
   }
