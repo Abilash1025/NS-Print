@@ -216,10 +216,10 @@
 }
 
 .nav__burger {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   border: 0;
   border-radius: var(--radius-sm);
   background: var(--surface);
@@ -229,6 +229,7 @@
   gap: 4px;
   padding: 0;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .nav__burger span {
@@ -362,5 +363,13 @@
 @media (max-width: 420px) {
   .nav__tag {
     display: none;
+  }
+
+  .nav__name {
+    font-size: 0.88rem;
+  }
+
+  .nav__logo {
+    width: 32px;
   }
 }

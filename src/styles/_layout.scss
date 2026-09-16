@@ -9,6 +9,13 @@ html {
   scroll-padding-top: calc(var(--nav-height-scrolled) + 0.75rem);
 }
 
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: calc(var(--nav-height-scrolled) + 0.5rem);
+    scroll-padding-bottom: calc(3.25rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -180,6 +187,17 @@ main {
 
 @media (max-width: 768px) {
   body.has-mobile-cta {
-    padding-bottom: 4.5rem;
+    padding-bottom: calc(3.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  :root {
+    --gutter: clamp(0.9rem, 4.2vw, 1.35rem);
+    --section-space: clamp(1.35rem, 4vw, 2rem);
+    --section-space-tight: clamp(1.1rem, 3.2vw, 1.6rem);
+  }
+
+  .section,
+  .section-tight {
+    scroll-margin-top: calc(var(--nav-height-scrolled) + 0.5rem);
   }
 }

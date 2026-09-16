@@ -35,14 +35,53 @@
 .bento__img {
   flex: 1 1 auto;
   min-height: 96px;
+  max-height: 220px;
+  overflow: hidden;
 }
 
 .bento__item[data-size='large'] .bento__img {
   min-height: 180px;
+  max-height: 260px;
   flex: 1 1 0;
 }
 
+@media (max-width: 719px) {
+  .bento {
+    gap: 0.9rem;
+  }
+
+  .bento__img {
+    max-height: 180px;
+  }
+
+  .bento__item[data-size='large'] .bento__img {
+    min-height: 140px;
+    max-height: 200px;
+  }
+
+  .bento__body {
+    padding: 0.65rem 0.75rem 0.75rem;
+  }
+
+  .bento__req {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.35rem 0.15rem 0.35rem 0.5rem;
+    font-size: 0.68rem;
+    color: var(--text-primary);
+  }
+}
+
 @media (min-width: 720px) {
+  .bento__img {
+    max-height: none;
+  }
+
+  .bento__item[data-size='large'] .bento__img {
+    max-height: none;
+  }
+
   .bento__img img {
     position: absolute;
     inset: 0;

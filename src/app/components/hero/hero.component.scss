@@ -716,23 +716,57 @@
 }
 
 @media (max-width: 959px) {
+  .hero__split {
+    min-height: 0;
+  }
+
   .hero__copy-wrap {
-    padding-bottom: 0.5rem;
+    padding: 1.1rem var(--gutter) 0.65rem;
+  }
+
+  .hero__card {
+    padding: 1.15rem 1.05rem 1.2rem;
+  }
+
+  .hero__title {
+    font-size: clamp(1.7rem, 7.2vw, 2.15rem);
+    line-height: 1.1;
+  }
+
+  .hero__lead {
+    margin-top: 0.85rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 1.15rem;
+    gap: 0.5rem;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.65rem 1.1rem;
+    font-size: 0.85rem;
   }
 
   .hero__press {
-    min-height: 320px;
-    padding: 1.15rem 1rem 1.35rem;
+    min-height: 0;
+    padding: 0.95rem 0.85rem 1.1rem;
   }
 
   .sim {
     width: min(100%, 420px);
+    gap: 0.45rem;
   }
 
-  /* Taller machine so rollers / CMYK stay readable */
   .sim__machine {
-    aspect-ratio: 16 / 13;
-    min-height: 280px;
+    aspect-ratio: 16 / 12;
+    min-height: 240px;
   }
 
   .sim__hood {
@@ -792,13 +826,27 @@
 }
 
 @media (max-width: 420px) {
+  .hero__card .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+
   .sim__machine {
-    min-height: 300px;
-    aspect-ratio: 15 / 13;
+    min-height: 220px;
+    aspect-ratio: 15 / 12;
+  }
+
+  .sim__hood-bar em:nth-of-type(2),
+  .sim__hood-bar b {
+    display: none;
   }
 
   .sim__sheet {
     width: 30%;
+  }
+
+  .sim__meter {
+    font-size: 0.58rem;
   }
 }
 

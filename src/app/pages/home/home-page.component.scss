@@ -224,10 +224,51 @@ a.home-contact__row:hover .home-contact__go {
 @media (max-width: 959px) {
   .home-contact {
     min-height: 0;
+    gap: 0.9rem;
+  }
+
+  .home-contact__info,
+  .home-contact__quote {
+    padding: 1rem 0.9rem;
   }
 
   .home-contact__list {
     grid-template-rows: none;
     height: auto;
+    gap: 0.45rem;
+  }
+
+  .home-contact__row {
+    grid-template-columns: auto 1fr;
+    gap: 0.65rem;
+    padding: 0.7rem 0.7rem;
+    align-items: start;
+  }
+
+  .home-contact__row .home-contact__go {
+    display: none;
+  }
+
+  .home-contact__ico {
+    width: 2.1rem;
+    height: 2.1rem;
+    margin-top: 0.1rem;
+  }
+
+  .home-contact__value,
+  .home-contact__hours {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .home-contact__actions {
+    width: 100%;
+  }
+
+  .home-contact__action {
+    flex: 1 1 auto;
+    min-height: 44px;
   }
 }

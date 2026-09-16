@@ -280,3 +280,28 @@
     transform: translateY(-4px);
   }
 }
+
+@media (max-width: 639px) {
+  .srv__img {
+    min-height: 120px;
+    max-height: 170px;
+  }
+
+  .srv__body {
+    padding: 0.75rem 0.8rem 0.9rem;
+  }
+
+  .srv__body h3 {
+    font-size: 0.95rem;
+  }
+
+  .srv__body p {
+    font-size: 0.78rem;
+  }
+
+  .srv__arrow {
+    width: 2.4rem;
+    height: 2.4rem;
+    min-height: 2.4rem;
+  }
+}
