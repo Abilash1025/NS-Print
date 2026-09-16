@@ -21,7 +21,7 @@ body {
   font-family: var(--font-body);
   font-size: 0.9rem;
   color: var(--text-primary);
-  background: var(--surface-soft);
+  background: #ffffff;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -72,11 +72,11 @@ textarea {
 }
 
 .section-canvas {
-  background: transparent;
+  background: #ffffff;
 }
 
 .section-soft {
-  background: transparent;
+  background: #ffffff;
 }
 
 .section-dark {
