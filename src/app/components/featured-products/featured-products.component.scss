@@ -64,8 +64,6 @@
   }
 
   .bento__req {
-    display: inline-flex;
-    align-items: center;
     min-height: 44px;
     padding: 0.35rem 0.15rem 0.35rem 0.5rem;
     font-size: 0.68rem;
@@ -96,7 +94,7 @@
 
 .bento__bar {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 0.4rem;
 }
@@ -106,6 +104,10 @@
 }
 
 .bento__req {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.4rem;
+  padding-inline: 0.15rem;
   font-size: 0.62rem;
   font-weight: 700;
   color: var(--text-muted);
