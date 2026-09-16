@@ -36,7 +36,7 @@
   --radius-lg: 16px;
   --radius-card: 16px;
 
-  /* Layout — match local boxed look (not full-bleed) */
+  /* Layout — content sections scale up on large screens; nav/footer stay tighter */
   --nav-height: 64px;
   --nav-height-scrolled: 56px;
   --container: 980px;
@@ -55,6 +55,18 @@
   /* Typography — clearer professional */
   --font-display: 'Sora', system-ui, sans-serif;
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+@media (min-width: 1400px) {
+  :root {
+    --container: 1200px;
+  }
+}
+
+@media (min-width: 1680px) {
+  :root {
+    --container: 1280px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

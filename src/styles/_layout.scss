@@ -71,10 +71,15 @@ textarea {
   font: inherit;
 }
 
-.container,
-.container-wide {
+.container {
   width: min(100% - (var(--gutter) * 2), var(--container));
   max-width: var(--container);
+  margin-inline: auto;
+}
+
+.container-wide {
+  width: min(100% - (var(--gutter) * 2), var(--container-wide));
+  max-width: var(--container-wide);
   margin-inline: auto;
 }
 
