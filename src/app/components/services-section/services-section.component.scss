@@ -36,7 +36,7 @@
   overflow: hidden;
   aspect-ratio: 4 / 3;
   min-height: 140px;
-  background: #f0eeeb;
+  background: #ffffff;
 }
 
 .srv__img picture,
@@ -181,7 +181,8 @@
   display: inline-grid;
   place-items: center;
   border-radius: 999px;
-  background: #f5f4f2;
+  background: #ffffff;
+  border: 1px solid var(--border);
   color: var(--text-muted);
   overflow: hidden;
   transition:

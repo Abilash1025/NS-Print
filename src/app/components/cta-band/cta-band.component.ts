@@ -33,8 +33,8 @@ import { RevealDirective } from '../../shared/reveal.directive';
         display: grid;
         gap: 1.15rem;
         padding: clamp(1.35rem, 3vw, 2rem);
-        background: var(--surface-dark);
-        color: #fff;
+        background: #ffffff;
+        color: var(--text-primary);
       }
 
       @media (min-width: 900px) {
@@ -46,11 +46,11 @@ import { RevealDirective } from '../../shared/reveal.directive';
       }
 
       .cta__title {
-        color: #fff;
+        color: var(--text-primary);
       }
 
       .cta__side p {
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--text-secondary);
         max-width: 24rem;
         font-size: 0.85rem;
       }

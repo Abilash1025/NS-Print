@@ -71,14 +71,16 @@
   gap: 0.45rem;
   padding: 0.95rem 0.85rem 1rem;
   border-radius: var(--radius-md);
-  background: var(--surface-soft);
-  transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
+  background: #ffffff;
+  border: 1px solid var(--border);
+  transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
 }
 
 .proc__step:hover {
   transform: translateY(-3px);
   box-shadow: var(--elev-1);
-  background: #fff;
+  background: #ffffff;
+  border-color: var(--border-strong);
 }
 
 .proc__ink {

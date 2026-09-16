@@ -108,7 +108,8 @@
   font-weight: 800;
   letter-spacing: 0.04em;
   color: var(--text-primary);
-  background: #f0efec;
+  background: #ffffff;
+  border: 1px solid var(--border);
   transition: transform var(--duration) var(--ease-out);
 }
 
@@ -131,7 +132,8 @@
   width: 28px;
   height: 28px;
   border-radius: 999px;
-  background: var(--surface-soft);
+  background: #ffffff;
+  border: 1px solid var(--border);
   display: grid;
   place-items: center;
   transition:
