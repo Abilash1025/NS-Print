@@ -13,25 +13,26 @@
   .hero__split {
     grid-template-columns: 1.05fr 0.95fr;
   }
+
+  .hero__copy-wrap {
+    max-width: none;
+  }
 }
 
 .hero__copy-wrap {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
   padding: clamp(1.5rem, 4vw, 3rem) var(--gutter);
   background: #fff;
-}
-
-.hero__card {
-  width: 100%;
-  max-width: 40rem;
-  padding: clamp(1.5rem, 3.2vw, 2.35rem);
-  background: transparent;
   box-shadow: none;
+  border: 0;
   border-radius: 0;
 }
 
-.hero__card .eyebrow {
+.hero__copy-wrap .eyebrow {
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   margin-bottom: 0.65rem;
@@ -724,11 +725,8 @@
   }
 
   .hero__copy-wrap {
-    padding: 1.1rem var(--gutter) 0.65rem;
-  }
-
-  .hero__card {
-    padding: 1.15rem 1.05rem 1.2rem;
+    padding: 1.1rem var(--gutter) 0.85rem;
+    max-width: none;
   }
 
   .hero__title {
@@ -829,7 +827,7 @@
 }
 
 @media (max-width: 420px) {
-  .hero__card .eyebrow {
+  .hero__copy-wrap .eyebrow {
     font-size: 0.68rem;
     letter-spacing: 0.1em;
   }
