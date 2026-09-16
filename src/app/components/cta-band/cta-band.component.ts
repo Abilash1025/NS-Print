@@ -6,7 +6,7 @@ import { RevealDirective } from '../../shared/reveal.directive';
   standalone: true,
   imports: [RevealDirective],
   template: `
-    <section class="cta section-canvas">
+    <section class="cta section section-canvas">
       <div class="container">
         <div class="cta__card elev-card" appReveal="scale">
           <h2 class="display-lg cta__title">Let's Put Your Brand in Print.</h2>
@@ -26,7 +26,7 @@ import { RevealDirective } from '../../shared/reveal.directive';
   styles: [
     `
       .cta {
-        padding-block: var(--section-space-tight);
+        padding-block: var(--section-space);
       }
 
       .cta__card {

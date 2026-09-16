@@ -7,7 +7,7 @@ import { RevealDirective } from '../../shared/reveal.directive';
   standalone: true,
   imports: [RevealDirective],
   template: `
-    <section class="trust section-canvas">
+    <section class="trust section section-canvas">
       <div class="container trust__wrap">
         <div class="trust__intro" appReveal>
           <p class="eyebrow">What sets us apart</p>
@@ -37,7 +37,7 @@ import { RevealDirective } from '../../shared/reveal.directive';
   styles: [
     `
       .trust {
-        padding-block: var(--section-space-tight);
+        padding-block: var(--section-space);
       }
 
       .trust__intro {

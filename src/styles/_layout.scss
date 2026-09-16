@@ -58,22 +58,15 @@ textarea {
   font: inherit;
 }
 
-.container {
+.container,
+.container-wide {
   width: min(100% - (var(--gutter) * 2), var(--container));
   margin-inline: auto;
 }
 
-.container-wide {
-  width: min(100% - (var(--gutter) * 2), var(--container-wide));
-  margin-inline: auto;
-}
-
-.section {
-  padding-block: var(--section-space);
-}
-
+.section,
 .section-tight {
-  padding-block: var(--section-space-tight);
+  padding-block: var(--section-space);
 }
 
 .section-canvas {
@@ -192,8 +185,8 @@ main {
 
   :root {
     --gutter: clamp(0.9rem, 4.2vw, 1.35rem);
-    --section-space: clamp(1.35rem, 4vw, 2rem);
-    --section-space-tight: clamp(1.1rem, 3.2vw, 1.6rem);
+    --section-space: clamp(1.5rem, 4vw, 2.25rem);
+    --section-space-tight: clamp(1.5rem, 4vw, 2.25rem);
   }
 
   .section,

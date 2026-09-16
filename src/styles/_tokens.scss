@@ -39,10 +39,10 @@
   /* Layout */
   --nav-height: 64px;
   --nav-height-scrolled: 56px;
-  --container: 980px;
+  --container: 1080px;
   --container-wide: 1080px;
-  --section-space: clamp(1.75rem, 3vw, 2.75rem);
-  --section-space-tight: clamp(1.35rem, 2.5vw, 2rem);
+  --section-space: clamp(2rem, 3.2vw, 2.75rem);
+  --section-space-tight: clamp(2rem, 3.2vw, 2.75rem);
   --gutter: clamp(1.25rem, 5vw, 3rem);
 
   /* Motion */
