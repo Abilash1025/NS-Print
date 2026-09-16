@@ -1,0 +1,64 @@
+:root {
+  /* Brand — from NS Print Mart logo */
+  --brand-cyan: #00aeef;
+  --brand-magenta: #ec008c;
+  --brand-yellow: #fff200;
+  --brand-charcoal: #231f20;
+  --brand-ink: #0b0a0a;
+  --brand-gray: #6b6664;
+
+  /* Surfaces — white-first */
+  --surface: #ffffff;
+  --surface-soft: #f6f6f4;
+  --surface-muted: #ecebe8;
+  --surface-dark: #171516;
+
+  /* Text */
+  --text-primary: #171516;
+  --text-secondary: #5c5856;
+  --text-muted: #8f8a87;
+  --text-inverse: #ffffff;
+
+  /* UI */
+  --border: #e6e5e2;
+  --border-strong: #cfcdc8;
+  --focus-ring: rgba(23, 21, 22, 0.25);
+
+  /* Shadows — restrained */
+  --shadow-sm: 0 1px 2px rgba(23, 21, 22, 0.05);
+  --shadow-md: 0 12px 32px rgba(23, 21, 22, 0.09);
+  --shadow-lg: 0 28px 60px rgba(23, 21, 22, 0.14);
+
+  /* Radius — squarer, editorial */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* Layout */
+  --nav-height: 80px;
+  --nav-height-scrolled: 62px;
+  --container: 1240px;
+  --container-wide: 1480px;
+  --section-space: clamp(3.5rem, 6vw, 6rem);
+  --section-space-tight: clamp(2.5rem, 4vw, 4rem);
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 180ms;
+  --duration: 320ms;
+  --duration-slow: 620ms;
+
+  /* Typography */
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration: 0ms;
+    --duration-slow: 0ms;
+  }
+}

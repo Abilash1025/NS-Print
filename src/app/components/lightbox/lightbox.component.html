@@ -1,0 +1,17 @@
+<div
+  class="lightbox"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-label]="item().title"
+  (click)="onBackdrop($event)"
+>
+  <div class="lightbox__panel">
+    <button type="button" class="lightbox__close" aria-label="Close" (click)="closed.emit()">×</button>
+    <img [src]="item().image" [alt]="item().title" />
+    <div class="lightbox__meta">
+      <p class="lightbox__cat">{{ item().categoryLabel }}</p>
+      <h2>{{ item().title }}</h2>
+      <p>{{ item().description }}</p>
+    </div>
+  </div>
+</div>

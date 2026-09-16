@@ -1,0 +1,62 @@
+<header class="nav" [class.is-scrolled]="scrolled()" [class.is-open]="menuOpen()">
+  <div class="nav__inner container-wide" data-nav-inner>
+    <a routerLink="/" class="nav__brand" (click)="closeMenu()" aria-label="NS Print Mart home">
+      <img
+        src="assets/logos/logo-nav.webp"
+        width="120"
+        height="94"
+        alt="NS Print Mart"
+        class="nav__logo"
+      />
+      <span class="nav__wordmark">
+        <span class="nav__name">NS Print Mart</span>
+        <span class="nav__tag">{{ company.tagline }}</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      @for (link of links; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          class="nav__link"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="nav__actions">
+      <a routerLink="/contact" class="btn btn-primary nav__cta">Get a Quote</a>
+      <button
+        type="button"
+        class="nav__burger"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-menu"
+        aria-label="Toggle menu"
+        (click)="toggleMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="nav__mobile" [class.is-open]="menuOpen()" [attr.aria-hidden]="!menuOpen()">
+    <nav aria-label="Mobile">
+      @for (link of links; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          (click)="closeMenu()"
+        >
+          {{ link.label }}
+        </a>
+      }
+      <a routerLink="/contact" class="btn btn-primary" (click)="closeMenu()">Get a Quote</a>
+    </nav>
+  </div>
+</header>

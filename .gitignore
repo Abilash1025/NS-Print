@@ -1,0 +1,45 @@
+﻿# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Build
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# IDE
+.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+*.log
+.DS_Store
+
+# System
+Thumbs.db
+
+# Large source brand PDFs (extracted assets used instead)
+*.pdf
+/assets-temp/
+tools/shots/
+
+# Angular
+.angular/

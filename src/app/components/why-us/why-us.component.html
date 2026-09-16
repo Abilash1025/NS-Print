@@ -1,0 +1,24 @@
+<section class="why section-tight">
+  <div class="container-wide">
+    <div class="head-split" appReveal>
+      <div>
+        <p class="eyebrow">Why NS Print Mart</p>
+        <h2 class="display-md">Built Around the Details<br />Brands Notice</h2>
+      </div>
+      <p class="lead">
+        Six reasons clients keep coming back for the next run.
+      </p>
+    </div>
+
+    <div class="why__rows">
+      @for (item of items; track item.id; let i = $index) {
+        <article class="why__row" appReveal>
+          <span class="why__num num-label">0{{ i + 1 }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+          <span class="why__rule" [attr.data-ink]="i % 4" aria-hidden="true"></span>
+        </article>
+      }
+    </div>
+  </div>
+</section>

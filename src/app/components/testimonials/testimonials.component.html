@@ -1,0 +1,37 @@
+<section class="tst section-tight">
+  <div class="container-wide tst__grid" appReveal>
+    <div class="tst__aside">
+      <p class="eyebrow">Testimonials</p>
+      <h2 class="display-md">What Clients<br />Will Say</h2>
+      <p class="lead" style="margin-top: 1rem">
+        Placeholder quotes for now — send real feedback and we'll drop it straight in.
+      </p>
+      <div class="tst__nav">
+        <button type="button" class="tst__btn" (click)="prev()" aria-label="Previous testimonial">
+          <svg width="20" height="10" viewBox="0 0 20 10" fill="none" aria-hidden="true">
+            <path d="M20 5H1M5 1L1 5l4 4" stroke="currentColor" stroke-width="1.4" />
+          </svg>
+        </button>
+        <span class="num-label">0{{ index() + 1 }} / 0{{ items.length }}</span>
+        <button type="button" class="tst__btn" (click)="next()" aria-label="Next testimonial">
+          <svg width="20" height="10" viewBox="0 0 20 10" fill="none" aria-hidden="true">
+            <path d="M0 5h19M15 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <figure class="tst__quote">
+      <span class="tst__mark" aria-hidden="true">“</span>
+      <blockquote>{{ current.quote }}</blockquote>
+      <figcaption>
+        <strong>{{ current.name }}</strong>
+        <span>{{ current.role }} · {{ current.company }}</span>
+        @if (current.isPlaceholder) {
+          <span class="tst__flag">Placeholder content</span>
+        }
+      </figcaption>
+      <span class="cmyk-rule tst__rule" aria-hidden="true"></span>
+    </figure>
+  </div>
+</section>

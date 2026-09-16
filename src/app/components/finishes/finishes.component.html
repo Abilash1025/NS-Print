@@ -1,0 +1,70 @@
+<section class="fin section">
+  <div class="container-wide">
+    <div class="head-split" appReveal>
+      <div>
+        <p class="eyebrow">Materials & finishes</p>
+        <h2 class="display-md">Every Detail Matters</h2>
+      </div>
+      <p class="lead">
+        Stock and finish decide how a piece feels — and how long people keep it. Switch a finish to
+        see the surface change.
+      </p>
+    </div>
+
+    <div class="fin__stage" [attr.data-finish]="activeId()" appReveal>
+      <!-- Interactive sample -->
+      <div class="fin__sample">
+        <div class="fin__card" [attr.data-wipe]="wipeKey()">
+          <img
+            class="fin__paper"
+            src="assets/images/print/print-paper-texture.webp"
+            alt=""
+            loading="lazy"
+            aria-hidden="true"
+          />
+          <span class="fin__sheen" aria-hidden="true"></span>
+          <span class="fin__wipe" aria-hidden="true"></span>
+          <div class="fin__face">
+            <span class="fin__mark">NS</span>
+            <span class="fin__brand">Print Mart</span>
+          </div>
+          <span class="fin__stamp num-label">{{ active.label }}</span>
+        </div>
+
+        <div class="fin__specs" aria-hidden="true">
+          <span>SURFACE</span>
+          <span>{{ active.label }}</span>
+        </div>
+      </div>
+
+      <!-- Finish selector -->
+      <div class="fin__picker" role="tablist" aria-label="Finish options">
+        @for (finish of finishes; track finish.id; let i = $index) {
+          <button
+            type="button"
+            role="tab"
+            class="fin__opt"
+            [class.is-active]="activeId() === finish.id"
+            [attr.aria-selected]="activeId() === finish.id"
+            (click)="select(finish.id)"
+          >
+            <span class="fin__opt-num num-label">0{{ i + 1 }}</span>
+            <span class="fin__opt-body">
+              <span class="fin__opt-label">{{ finish.label }}</span>
+              <span class="fin__opt-desc">{{ finish.description }}</span>
+            </span>
+            <span class="fin__opt-line" aria-hidden="true"></span>
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="fin__marquee" aria-hidden="true">
+    <div class="marquee-track">
+      @for (item of marquee; track $index) {
+        <span>{{ item }}</span>
+      }
+    </div>
+  </div>
+</section>

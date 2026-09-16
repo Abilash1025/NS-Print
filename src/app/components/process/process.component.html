@@ -1,0 +1,28 @@
+<section class="proc section section-dark">
+  <div class="container-wide">
+    <div class="head-split proc__head" appReveal>
+      <div>
+        <p class="eyebrow proc__eyebrow">How it works</p>
+        <h2 class="display-md">From Idea to Print</h2>
+      </div>
+      <p class="lead proc__lead">
+        Four steps, no guesswork. You always know where your job is.
+      </p>
+    </div>
+
+    <ol class="proc__steps">
+      @for (step of steps; track step.id; let i = $index) {
+        <li class="proc__step" [appReveal]="'reveal-delay-' + (i + 1)">
+          <span class="proc__num">{{ step.number }}</span>
+          <span class="proc__track" aria-hidden="true">
+            <span class="proc__dot" [attr.data-ink]="i"></span>
+          </span>
+          <div class="proc__body">
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

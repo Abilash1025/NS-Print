@@ -1,0 +1,63 @@
+<section class="page-head">
+  <div class="container-wide page-head__inner">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h1 class="display-lg">Talk to Us About<br />Your Next Print Job</h1>
+    </div>
+    <p class="lead">
+      Call, WhatsApp, or send a request — we'll help shape the right print solution.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide contact">
+    <aside class="contact__info">
+      <h2 class="contact__h">Contact details</h2>
+      <dl class="contact__list">
+        <div>
+          <dt>Phone</dt>
+          <dd><a [href]="tel" class="link-underline">{{ company.phoneDisplay }}</a></dd>
+        </div>
+        <div>
+          <dt>WhatsApp</dt>
+          <dd>
+            <a [href]="whatsapp" target="_blank" rel="noopener noreferrer" class="link-underline">
+              Chat on WhatsApp
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <dd><a [href]="mail" class="link-underline">{{ company.email }}</a></dd>
+        </div>
+        <div>
+          <dt>Address</dt>
+          <dd>
+            @for (line of company.addressLines; track line) {
+              <span class="contact__line">{{ line }}</span>
+            }
+          </dd>
+        </div>
+        <div>
+          <dt>Hours</dt>
+          <dd class="contact__hours">{{ company.openingHours }}</dd>
+        </div>
+      </dl>
+
+      <a
+        class="btn btn-secondary contact__map-btn"
+        [href]="'https://www.google.com/maps/search/?api=1&query=' + company.mapQuery"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open in Google Maps
+      </a>
+    </aside>
+
+    <div class="contact__form">
+      <h2 class="display-md contact__form-title">Get a Quote</h2>
+      <app-quote-form />
+    </div>
+  </div>
+</section>

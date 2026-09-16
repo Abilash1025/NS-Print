@@ -1,0 +1,68 @@
+@if (service(); as s) {
+  <section class="detail">
+    <div class="container-wide detail__head">
+      <div>
+        <p class="eyebrow">{{ s.categoryLabel }}</p>
+        <h1 class="display-lg">{{ s.name }}</h1>
+      </div>
+      <p class="lead">{{ s.description }}</p>
+    </div>
+
+    <div class="container-wide detail__media">
+      <img [src]="s.image" [alt]="s.name" />
+      <span class="cmyk-rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="container-wide detail__specs">
+      @for (feature of s.features; track feature; let i = $index) {
+        <div class="detail__spec">
+          <span class="num-label">0{{ i + 1 }}</span>
+          <span>{{ feature }}</span>
+        </div>
+      }
+    </div>
+  </section>
+
+  @if (related().length) {
+    <section class="section-tight section-soft">
+      <div class="container-wide">
+        <div class="head-split">
+          <h2 class="display-md">Related services</h2>
+          <p class="lead">More print in the {{ s.categoryLabel }} family.</p>
+        </div>
+        <div class="related">
+          @for (item of related(); track item.id) {
+            <a [routerLink]="['/services', item.slug]" class="related__card" data-cursor="VIEW">
+              <span class="related__img">
+                <img [src]="item.image" [alt]="item.name" loading="lazy" />
+              </span>
+              <span class="related__meta">
+                <span class="related__name">{{ item.name }}</span>
+                <span class="num-label">{{ item.id }}</span>
+              </span>
+            </a>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <section class="section">
+    <div class="container-wide detail__quote">
+      <div>
+        <p class="eyebrow">Request</p>
+        <h2 class="display-md">Get a Quote for<br />{{ s.name }}</h2>
+        <p class="lead" style="margin-top: 1rem">
+          Share quantity, size, and finish — we'll come back with the details.
+        </p>
+      </div>
+      <app-quote-form />
+    </div>
+  </section>
+} @else {
+  <section class="section container-wide">
+    <h1 class="display-md">Service not found</h1>
+    <p style="margin: 1rem 0 1.5rem">The service you're looking for isn't available.</p>
+    <a routerLink="/services" class="btn btn-primary">Back to services</a>
+  </section>
+}

@@ -1,0 +1,33 @@
+<section class="faq section-tight section-soft">
+  <div class="container-wide faq__grid">
+    <div appReveal>
+      <p class="eyebrow">FAQ</p>
+      <h2 class="display-md">Questions Before<br />You Print</h2>
+      <p class="lead" style="margin-top: 1rem">
+        Quick answers about process, artwork, and starting a job.
+      </p>
+    </div>
+
+    <div class="faq__list" appReveal="reveal-delay-2">
+      @for (item of items; track item.id; let i = $index) {
+        <div class="faq__item" [class.is-open]="openId() === item.id">
+          <button
+            type="button"
+            class="faq__q"
+            (click)="toggle(item.id)"
+            [attr.aria-expanded]="openId() === item.id"
+          >
+            <span class="num-label">0{{ i + 1 }}</span>
+            <span class="faq__label">{{ item.question }}</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          @if (openId() === item.id) {
+            <div class="faq__a">
+              <p>{{ item.answer }}</p>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,301 @@
+.fin__stage {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .fin__stage {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+}
+
+/* ---------- Sample card ---------- */
+
+.fin__sample {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.fin__card {
+  position: relative;
+  aspect-ratio: 1.62;
+  overflow: hidden;
+  background: var(--text-primary);
+  transition:
+    transform 500ms var(--ease-out),
+    box-shadow 500ms var(--ease-out),
+    filter 500ms var(--ease-out);
+}
+
+.fin__paper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 500ms var(--ease-out);
+}
+
+.fin__face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 0.3rem;
+  text-align: center;
+  z-index: 3;
+}
+
+.fin__mark {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #fff;
+  transition: text-shadow 400ms var(--ease-out), color 400ms var(--ease-out);
+}
+
+.fin__brand {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.fin__stamp {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+  padding: 0.4rem 0.75rem;
+  background: #fff;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.6rem;
+}
+
+/* Sheen layer — behaviour varies per finish */
+.fin__sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 500ms var(--ease-out);
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.55) 47%,
+    rgba(255, 255, 255, 0.1) 55%,
+    transparent 70%
+  );
+}
+
+/* Ink wipe that sweeps across on every finish change */
+.fin__wipe {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  transform: translateX(-101%);
+  background: linear-gradient(
+    90deg,
+    var(--brand-cyan) 0 25%,
+    var(--brand-magenta) 25% 50%,
+    var(--brand-yellow) 50% 75%,
+    var(--text-primary) 75%
+  );
+}
+
+.fin__card[data-wipe] .fin__wipe {
+  animation: ink-wipe 700ms var(--ease-in-out) 1;
+}
+
+@keyframes ink-wipe {
+  0% { transform: translateX(-101%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(101%); }
+}
+
+/* ---------- Per-finish surface treatments ---------- */
+
+.fin__stage[data-finish='matte'] .fin__card {
+  filter: saturate(0.9) contrast(0.98);
+  box-shadow: 0 14px 30px rgba(23, 21, 22, 0.16);
+}
+
+.fin__stage[data-finish='gloss'] .fin__card {
+  background: linear-gradient(150deg, #2e2a2b, #100e0f 55%, #3b3637);
+  box-shadow: 0 26px 54px rgba(23, 21, 22, 0.3);
+}
+
+.fin__stage[data-finish='gloss'] .fin__sheen {
+  opacity: 1;
+}
+
+.fin__stage[data-finish='foil'] .fin__mark {
+  background: linear-gradient(115deg, #fff6a8, #ec008c 38%, #00aeef 72%, #fff200);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.fin__stage[data-finish='foil'] .fin__sheen {
+  opacity: 0.45;
+}
+
+.fin__stage[data-finish='emboss'] .fin__card {
+  background: #f2f1ee;
+  transform: perspective(1000px) rotateX(6deg) rotateY(-7deg);
+  box-shadow: 0 30px 50px rgba(23, 21, 22, 0.2);
+}
+
+.fin__stage[data-finish='emboss'] .fin__paper {
+  opacity: 0.9;
+}
+
+.fin__stage[data-finish='emboss'] .fin__mark {
+  color: #ddd9d3;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95),
+    0 -1px 1px rgba(23, 21, 22, 0.35);
+}
+
+.fin__stage[data-finish='emboss'] .fin__brand {
+  color: rgba(23, 21, 22, 0.45);
+}
+
+.fin__specs {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ---------- Picker ---------- */
+
+.fin__picker {
+  display: grid;
+  align-content: start;
+  border-top: 1px solid var(--border-strong);
+}
+
+.fin__opt {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  width: 100%;
+  padding: 1.1rem 0.25rem;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.fin__opt-num {
+  padding-top: 0.15rem;
+}
+
+.fin__opt-body {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.fin__opt-label {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  transition: color var(--duration) var(--ease-out);
+}
+
+.fin__opt-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 400ms var(--ease-out),
+    opacity 300ms var(--ease-out);
+}
+
+.fin__opt-line {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 100%;
+  background: var(--text-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 450ms var(--ease-out);
+}
+
+.fin__opt:hover .fin__opt-label {
+  color: var(--text-primary);
+}
+
+.fin__opt.is-active .fin__opt-label {
+  color: var(--text-primary);
+}
+
+.fin__opt.is-active .fin__opt-desc {
+  max-height: 5rem;
+  opacity: 1;
+}
+
+.fin__opt.is-active .fin__opt-line {
+  transform: scaleX(1);
+}
+
+.fin__opt:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: -2px;
+}
+
+/* ---------- Marquee ---------- */
+
+.fin__marquee {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-block: 0.9rem;
+  border-block: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.fin__marquee .marquee-track {
+  display: flex;
+  gap: 2.25rem;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+
+.fin__marquee .marquee-track span:nth-child(4n + 1) { color: var(--brand-cyan); }
+.fin__marquee .marquee-track span:nth-child(4n + 2) { color: var(--brand-magenta); }
+.fin__marquee .marquee-track span:nth-child(4n + 3) { color: #e3d400; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fin__wipe {
+    display: none;
+  }
+}

@@ -1,0 +1,57 @@
+<footer class="footer">
+  <span class="cmyk-rule" aria-hidden="true"></span>
+
+  <div class="footer__top container-wide">
+    <div class="footer__brand">
+      <img src="assets/logos/logo-nav.webp" width="72" height="57" alt="NS Print Mart" />
+      <p class="footer__desc">{{ company.description }}</p>
+      <p class="footer__tagline">{{ company.tagline }}</p>
+    </div>
+
+    <nav class="footer__col" aria-label="Footer navigation">
+      <h2>Navigate</h2>
+      <ul>
+        @for (link of links; track link.path) {
+          <li><a [routerLink]="link.path" class="link-underline">{{ link.label }}</a></li>
+        }
+      </ul>
+    </nav>
+
+    <div class="footer__col">
+      <h2>Services</h2>
+      <ul>
+        @for (service of services; track service.id) {
+          <li>
+            <a [routerLink]="['/services', service.slug]" class="link-underline">{{ service.name }}</a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h2>Contact</h2>
+      <ul>
+        <li><a [href]="telUrl" class="link-underline">{{ company.phoneDisplay }}</a></li>
+        <li><a [href]="mailUrl" class="link-underline">{{ company.email }}</a></li>
+        @for (line of company.addressLines; track line) {
+          <li class="footer__plain">{{ line }}</li>
+        }
+        <li class="footer__hours">{{ company.openingHours }}</li>
+      </ul>
+      <div class="footer__social">
+        @for (social of company.social; track social.label) {
+          @if (social.enabled) {
+            <a [href]="social.url" target="_blank" rel="noopener noreferrer">{{ social.label }}</a>
+          } @else {
+            <span class="is-placeholder" title="Link to be added">{{ social.label }}</span>
+          }
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom container-wide">
+    <p>© {{ year }} {{ company.name }}</p>
+    <p>{{ company.subtitle }}</p>
+  </div>
+</footer>

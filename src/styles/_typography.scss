@@ -1,0 +1,80 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 1.75rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-cyan) 0 33%, var(--brand-magenta) 33% 66%, var(--brand-yellow) 66%);
+}
+
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 9.5vw, 8rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 34rem;
+}
+
+.num-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}

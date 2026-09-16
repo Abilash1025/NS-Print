@@ -1,0 +1,28 @@
+<app-hero />
+<app-trust />
+<app-services-section [limit]="8" />
+<app-featured-products />
+<app-finishes />
+<app-portfolio-section [limit]="6" />
+<app-process />
+<app-about-section [compact]="true" />
+<app-why-us />
+<app-testimonials />
+<app-faq />
+<app-cta-band />
+
+<section class="section" id="quote">
+  <div class="container-wide home-quote">
+    <div appReveal>
+      <p class="eyebrow">Get a quote</p>
+      <h2 class="display-md">Have Something<br />in Mind?</h2>
+      <p class="lead" style="margin-top: 1rem">
+        Tell us what you want to print. We'll help turn the idea into something worth holding.
+      </p>
+      <span class="cmyk-rule home-quote__rule" aria-hidden="true"></span>
+    </div>
+    <div appReveal="reveal-delay-2">
+      <app-quote-form />
+    </div>
+  </div>
+</section>

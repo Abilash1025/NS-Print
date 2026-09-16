@@ -1,0 +1,58 @@
+<section class="pf section section-soft">
+  <div class="container-wide">
+    @if (showHeader()) {
+      <div class="head-split" appReveal>
+        <div>
+          <p class="eyebrow">Our work</p>
+          <h2 class="display-md">Work That Speaks<br />Before You Do.</h2>
+        </div>
+        <p class="lead">
+          Printed pieces produced for brands that need clarity, colour, and craft.
+        </p>
+      </div>
+    }
+
+    <div class="pf__bar" appReveal>
+      <div class="pf__filters" role="tablist" aria-label="Portfolio categories">
+        @for (filter of filters; track filter.id) {
+          <button
+            type="button"
+            class="pf__filter"
+            role="tab"
+            [class.is-active]="activeFilter() === filter.id"
+            [attr.aria-selected]="activeFilter() === filter.id"
+            (click)="setFilter(filter.id)"
+          >
+            {{ filter.label }}
+          </button>
+        }
+      </div>
+      <span class="pf__count num-label">{{ items.length }} projects</span>
+    </div>
+
+    <div class="pf__grid">
+      @for (item of items; track item.id; let i = $index) {
+        <button
+          type="button"
+          class="pf__item"
+          appReveal
+          data-cursor="VIEW"
+          (click)="open(item)"
+        >
+          <span class="pf__frame">
+            <img [src]="item.thumb" [alt]="item.title" loading="lazy" />
+            <span class="pf__ink" [attr.data-ink]="i % 4" aria-hidden="true"></span>
+          </span>
+          <span class="pf__meta">
+            <span class="pf__title">{{ item.title }}</span>
+            <span class="pf__cat">{{ item.categoryLabel }}</span>
+          </span>
+        </button>
+      }
+    </div>
+  </div>
+
+  @if (selected(); as item) {
+    <app-lightbox [item]="item" (closed)="close()" />
+  }
+</section>

@@ -1,0 +1,29 @@
+<section class="featured section section-soft">
+  <div class="container-wide">
+    <div class="head-split" appReveal>
+      <div>
+        <p class="eyebrow">Featured print</p>
+        <h2 class="display-md">Made to Be Seen.<br />Made to Last.</h2>
+      </div>
+      <p class="lead">
+        Products photographed as they arrive — real stocks, real finishes, real weight in the hand.
+      </p>
+    </div>
+
+    <div class="featured__grid">
+      @for (product of products; track product.id; let i = $index) {
+        <article class="fp" [class]="'fp--' + product.size" appReveal data-cursor="VIEW">
+          <div class="fp__img">
+            <img [src]="product.image" [alt]="product.name" loading="lazy" />
+          </div>
+          <div class="fp__bar">
+            <span class="fp__index num-label">{{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }}</span>
+            <h3>{{ product.name }}</h3>
+            <a routerLink="/contact" class="fp__req">Request</a>
+          </div>
+          <p class="fp__desc">{{ product.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

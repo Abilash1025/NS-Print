@@ -1,0 +1,75 @@
+<section class="hero">
+  <div class="hero__top container-wide">
+    <div class="hero__copy">
+      <p class="eyebrow" appReveal>{{ company.subtitle }} · Colombo</p>
+      <h1 class="display-xl hero__title">
+        <span class="hero__line" appReveal>Print That Makes</span>
+        <span class="hero__line" appReveal="reveal-delay-1">Your Brand</span>
+        <span class="hero__line" appReveal="reveal-delay-2">Unignorable.</span>
+      </h1>
+      <span class="cmyk-rule hero__rule" appReveal="reveal-delay-3" aria-hidden="true"></span>
+      <div class="hero__meta" appReveal="reveal-delay-3">
+        <p class="lead">
+          Digital and offset printing for businesses that care how their brand feels in the hand —
+          cards, packaging, banners, and everything between.
+        </p>
+        <div class="hero__actions">
+          <a routerLink="/contact" class="btn btn-primary" data-cursor="OPEN">Get a Quote</a>
+          <a routerLink="/work" class="btn btn-secondary">Explore Our Work</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__stage container-wide">
+    <!-- Printing press animation -->
+    <div class="press-anim" appReveal aria-hidden="true">
+      <div class="press-anim__rail">
+        <span class="press-anim__mark">REGISTRATION</span>
+        <span class="press-anim__mark">CMYK</span>
+        <span class="press-anim__mark">300 GSM</span>
+      </div>
+
+      <div class="press">
+        <div class="press__roller press__roller--top"></div>
+
+        <div class="press__sheet">
+          <div class="plate plate--c"></div>
+          <div class="plate plate--m"></div>
+          <div class="plate plate--y"></div>
+          <div class="plate plate--k"></div>
+          <div class="press__scan"></div>
+        </div>
+
+        <div class="press__roller press__roller--bottom"></div>
+
+        <div class="press__inks">
+          <span class="ink ink--c"></span>
+          <span class="ink ink--m"></span>
+          <span class="ink ink--y"></span>
+          <span class="ink ink--k"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Finished output -->
+    <figure class="hero__output" appReveal="reveal-delay-2">
+      <img
+        src="assets/images/print/hero-cmyk-composition.webp"
+        alt="Printed brand materials — business cards, brochures, stickers, and packaging"
+        width="1152"
+        height="864"
+        fetchpriority="high"
+      />
+      <figcaption>Finished output</figcaption>
+    </figure>
+  </div>
+
+  <div class="hero__ticker" aria-hidden="true">
+    <div class="marquee-track">
+      @for (item of ticker; track $index) {
+        <span>{{ item }}</span>
+      }
+    </div>
+  </div>
+</section>
