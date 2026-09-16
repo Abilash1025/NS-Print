@@ -54,8 +54,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "src/styles.tailwind.css"
+              "src/styles.tailwind.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -114,8 +114,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "src/styles.tailwind.css"
+              "src/styles.tailwind.css",
+              "src/styles.scss"
             ],
             "scripts": []
           }
