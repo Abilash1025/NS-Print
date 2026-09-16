@@ -21,7 +21,7 @@ body {
   font-family: var(--font-body);
   font-size: 0.9rem;
   color: var(--text-primary);
-  background: #ffffff;
+  background: var(--surface-soft);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -61,6 +61,7 @@ textarea {
 .container,
 .container-wide {
   width: min(100% - (var(--gutter) * 2), var(--container));
+  max-width: var(--container);
   margin-inline: auto;
 }
 
@@ -70,11 +71,11 @@ textarea {
 }
 
 .section-canvas {
-  background: #ffffff;
+  background: transparent;
 }
 
 .section-soft {
-  background: #fafafa;
+  background: transparent;
 }
 
 .section-dark {

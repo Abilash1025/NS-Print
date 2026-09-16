@@ -15,7 +15,8 @@
     box-shadow: var(--elev-1);
   }
 
+  /* Do not paint full-bleed white — page uses soft grey so side margins show */
   .section-canvas {
-    background: #ffffff;
+    background: transparent;
   }
 }

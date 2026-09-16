@@ -27,6 +27,8 @@ module.exports = {
   },
   plugins: [],
   corePlugins: {
-    preflight: false
+    preflight: false,
+    // Keep our custom .container max-width — Tailwind's is ~1280px and made live look oversized
+    container: false
   }
 };
