@@ -1,19 +1,22 @@
 <section class="faq section section-canvas" id="faq">
-  <div class="container faq__grid">
-    <aside class="faq__intro elev-card" appReveal="left">
-      <p class="eyebrow">FAQ</p>
-      <h2 class="display-md">Questions Before<br />You Print</h2>
-      <p class="lead faq__lead">
-        Quick answers about process, artwork, and starting a job.
-      </p>
-
-      <div class="faq__aside-meta">
-        <span class="faq__count">{{ items.length }} topics</span>
-        <a href="#quote" class="btn btn-primary faq__cta">Ask for a quote</a>
+  <div class="container">
+    <div class="head-split faq__head" appReveal>
+      <div>
+        <p class="eyebrow">FAQ</p>
+        <h2 class="display-md">Questions Before<br />You Print</h2>
       </div>
-    </aside>
+      <div class="faq__head-side">
+        <p class="lead faq__lead">
+          Quick answers about process, artwork, and starting a job.
+        </p>
+        <div class="faq__aside-meta">
+          <span class="faq__count">{{ items.length }} topics</span>
+          <a href="#quote" class="btn btn-primary faq__cta">Ask for a quote</a>
+        </div>
+      </div>
+    </div>
 
-    <div class="faq__list" appReveal="right reveal-delay-2" role="list">
+    <div class="faq__list" appReveal="stagger" role="list">
       @for (item of items; track item.id; let i = $index) {
         <div
           class="faq__item elev-card"

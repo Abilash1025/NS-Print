@@ -43,3 +43,7 @@ tools/shots/
 
 # Angular
 .angular/
+
+# Local image backups (not deployed)
+/backups/
+

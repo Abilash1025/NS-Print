@@ -10,6 +10,7 @@ import { MobileCtaComponent } from './components/mobile-cta/mobile-cta.component
   imports: [RouterOutlet, NavbarComponent, FooterComponent, MobileCtaComponent],
   template: `
     <a class="skip-link" href="#main">Skip to content</a>
+    <div id="home" class="scroll-home-anchor" tabindex="-1"></div>
     <app-navbar />
     <main id="main">
       <router-outlet />
@@ -24,11 +25,28 @@ import { MobileCtaComponent } from './components/mobile-cta/mobile-cta.component
         overflow-x: clip;
         max-width: 100%;
       }
+
+      /* Page origin anchor — professional #home hash, not under sticky nav */
+      .scroll-home-anchor {
+        position: relative;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
     `
   ]
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
     document.body.classList.add('has-mobile-cta');
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'auto';
+    }
+
+    // Migrate legacy #top bookmarks to #home
+    if (location.hash === '#top') {
+      history.replaceState(null, '', `${location.pathname}${location.search}#home`);
+    }
   }
 }

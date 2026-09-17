@@ -8,112 +8,180 @@ import { RevealDirective } from '../../shared/reveal.directive';
   imports: [RevealDirective],
   template: `
     <section class="trust section section-canvas">
-      <div class="container trust__wrap">
-        <div class="trust__intro" appReveal>
-          <p class="eyebrow">What sets us apart</p>
-          <h2 class="display-md">Built for brands that notice the details</h2>
+      <div class="container">
+        <div class="head-split trust__head" appReveal>
+          <div>
+            <p class="eyebrow">What sets us apart</p>
+            <h2 class="display-md trust__title">Built for brands that notice the details</h2>
+          </div>
+          <p class="lead trust__lead">
+            Quality stock, reliable turnaround, and support that stays with the job.
+          </p>
         </div>
 
-        <div class="trust__grid" appReveal="stagger">
-          <article class="trust__visual elev-card">
-            <img
-              src="assets/images/print/trust-quality-paper.webp"
-              alt="Premium paper stock stack"
-              loading="lazy"
-            />
-          </article>
-
+        <ol class="trust__list" appReveal="stagger">
           @for (item of items; track item.id; let i = $index) {
-            <article class="trust__cell elev-card">
-              <span class="trust__index" [attr.data-ink]="i">0{{ i + 1 }}</span>
+            <li class="trust__card" [attr.data-ink]="inks[i]">
+              <span class="trust__index">0{{ i + 1 }}</span>
               <h3>{{ item.title }}</h3>
               <p>{{ item.description }}</p>
-            </article>
+            </li>
           }
-        </div>
+        </ol>
       </div>
     </section>
   `,
   styles: [
     `
       .trust {
-        padding-block: var(--section-space);
+        padding-block: clamp(1.15rem, 2.4vw, 1.75rem);
+        margin-top: clamp(0.75rem, 2vw, 1.5rem);
       }
 
-      .trust__intro {
-        margin-bottom: 1rem;
-        max-width: 28rem;
-      }
-
-      .trust__grid {
-        display: grid;
-        gap: 0.85rem;
-      }
-
-      @media (min-width: 720px) {
-        .trust__grid {
-          grid-template-columns: 1.1fr 1fr 1fr;
-          grid-template-rows: auto auto;
-        }
-
-        .trust__visual {
-          grid-row: span 2;
-        }
-      }
-
-      .trust__visual {
-        overflow: hidden;
-        min-height: 160px;
-        background: #fff;
-      }
-
-      .trust__visual img {
+      .trust__head {
         width: 100%;
-        height: 100%;
-        min-height: 180px;
-        object-fit: cover;
+        margin-bottom: clamp(0.85rem, 1.8vw, 1.25rem);
       }
 
-      .trust__cell {
-        padding: 1rem 1.05rem 1.1rem;
-        background: #fff;
-        transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
+      .trust__title {
+        margin: 0;
+        font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+        line-height: 1.15;
+        letter-spacing: -0.03em;
       }
 
-      .trust__cell:hover {
+      .trust__lead {
+        margin: 0;
+        max-width: none;
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+
+      .trust__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+        width: 100%;
+      }
+
+      @media (min-width: 640px) {
+        .trust__list {
+          grid-template-columns: 1fr 1fr;
+          gap: 0.75rem;
+        }
+      }
+
+      @media (min-width: 960px) {
+        .trust__list {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 0.85rem;
+        }
+      }
+
+      .trust__card {
+        display: grid;
+        gap: 0.4rem;
+        align-content: start;
+        width: 100%;
+        min-width: 0;
+        min-height: 100%;
+        padding: 0.95rem 1rem 1.05rem;
+        border: 0;
+        border-radius: 0.75rem;
+        color: #fff;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.12) inset,
+          0 8px 20px rgba(23, 21, 22, 0.14),
+          0 18px 36px rgba(23, 21, 22, 0.1);
+        transition:
+          transform var(--duration-fast) var(--ease-out),
+          box-shadow var(--duration-fast) var(--ease-out);
+      }
+
+      .trust__card:hover {
         transform: translateY(-3px);
-        box-shadow: var(--elev-2);
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.14) inset,
+          0 12px 26px rgba(23, 21, 22, 0.16),
+          0 24px 44px rgba(23, 21, 22, 0.12);
+      }
+
+      /* Matte dark CMYK */
+      .trust__card[data-ink='c'] {
+        background: #0a6f96;
+      }
+
+      .trust__card[data-ink='m'] {
+        background: #9a1663;
+      }
+
+      .trust__card[data-ink='y'] {
+        background: #b89a12;
+        color: #1a1608;
+      }
+
+      .trust__card[data-ink='k'] {
+        background: #2a2625;
       }
 
       .trust__index {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 2rem;
-        padding: 0.2rem 0.45rem;
-        margin-bottom: 0.55rem;
-        border-radius: 999px;
-        font-size: 0.65rem;
+        width: fit-content;
+        min-width: 1.9rem;
+        height: 1.45rem;
+        padding: 0 0.42rem;
+        border-radius: 0.35rem;
+        font-family: var(--font-display);
+        font-size: 0.62rem;
         font-weight: 800;
-        color: #fff;
+        letter-spacing: 0.06em;
+        background: rgba(255, 255, 255, 0.16);
+        color: inherit;
       }
 
-      .trust__index[data-ink='0'] { background: var(--brand-gray); }
-      .trust__index[data-ink='1'] { background: var(--brand-charcoal); }
-      .trust__index[data-ink='2'] { background: #9a9592; color: #fff; }
-      .trust__index[data-ink='3'] { background: var(--brand-ink); }
+      .trust__card[data-ink='y'] .trust__index {
+        background: rgba(26, 22, 8, 0.14);
+      }
 
-      .trust__cell h3 {
+      .trust__card h3 {
+        margin: 0;
         font-size: 0.95rem;
-        margin-bottom: 0.3rem;
+        font-weight: 750;
+        letter-spacing: -0.025em;
+        line-height: 1.2;
+        color: inherit;
       }
 
-      .trust__cell p {
-        font-size: 0.8rem;
+      .trust__card p {
+        margin: 0;
+        font-size: 0.76rem;
+        line-height: 1.4;
+        color: inherit;
+        opacity: 0.82;
+      }
+
+      @media (max-width: 479px) {
+        .trust__card {
+          padding: 0.85rem 0.9rem 0.95rem;
+        }
+
+        .trust__card h3 {
+          font-size: 0.9rem;
+        }
+
+        .trust__card p {
+          font-size: 0.72rem;
+        }
       }
     `
   ]
 })
 export class TrustComponent {
   readonly items = TRUST_ITEMS;
+  readonly inks = ['c', 'm', 'y', 'k'] as const;
 }

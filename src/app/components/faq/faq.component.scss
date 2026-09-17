@@ -1,38 +1,23 @@
-.faq__grid {
+.faq__head {
+  margin-bottom: clamp(0.85rem, 1.8vw, 1.25rem);
+}
+
+.faq__head-side {
   display: grid;
-  gap: 1rem;
-}
-
-@media (min-width: 900px) {
-  .faq__grid {
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 1.15rem;
-    align-items: start;
-  }
-}
-
-.faq__intro {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.2rem 1.15rem 1.35rem;
-  background: #fff;
-  overflow: hidden;
-  height: fit-content;
+  gap: 0.65rem;
+  align-content: end;
 }
 
 .faq__lead {
   margin: 0;
-  max-width: 28ch;
+  max-width: 32rem;
 }
 
 .faq__aside-meta {
-  margin-top: 0.15rem;
-  padding-top: 0;
-  display: grid;
-  justify-items: start;
-  gap: 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.85rem;
 }
 
 .faq__count {
@@ -44,18 +29,9 @@
 }
 
 .faq__cta {
-  justify-self: start;
   min-height: 2.15rem;
   padding-inline: 0.9rem;
   font-size: 0.72rem;
-}
-
-.faq__intro .eyebrow {
-  margin: 0;
-}
-
-.faq__intro .display-md {
-  margin: 0;
 }
 
 .faq__list {
@@ -67,13 +43,10 @@
 .faq__item {
   background: #fff;
   overflow: hidden;
-  transition:
-    box-shadow var(--duration) var(--ease-out),
-    transform var(--duration) var(--ease-out);
+  transition: box-shadow var(--duration) var(--ease-out);
 }
 
 .faq__item:hover {
-  transform: translateY(-1px);
   box-shadow: var(--elev-2);
 }
 
@@ -172,7 +145,6 @@
   opacity: 0;
 }
 
-/* Smooth accordion without removing from DOM */
 .faq__panel {
   display: grid;
   grid-template-rows: 0fr;
@@ -191,7 +163,7 @@
 .faq__panel-inner p {
   margin: 0;
   padding: 0 1rem 1.05rem 3.55rem;
-  max-width: 36rem;
+  max-width: 42rem;
   font-size: 0.84rem;
   line-height: 1.55;
   color: var(--text-secondary);

@@ -24,12 +24,9 @@ export class FooterComponent {
 
   goTo(section: string, event?: Event): void {
     event?.preventDefault();
-    if (section === 'top') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      this.scroll.scrollTo(section);
-    }
+    const target = section === 'top' ? 'home' : section;
+    this.scroll.scrollTo(target);
     const base = `${location.pathname}${location.search}`;
-    history.replaceState(null, '', `${base}#${section}`);
+    history.replaceState(null, '', `${base}#${target}`);
   }
 }

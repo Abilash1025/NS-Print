@@ -25,11 +25,11 @@ export const PORTFOLIO: PortfolioItem[] = [
   },
   {
     id: 'p2',
-    title: 'CMYK Card Set',
+    title: 'NS Print Mart Card Set',
     category: 'corporate',
     categoryLabel: 'Corporate',
     description:
-      'Business card run showing full-colour capability across black and CMYK ink stocks.',
+      'Premium matte business cards with CMYK colour bars and NS Print Mart branding across black and white stocks.',
     image: `${WORK}/work-gen-cards.webp`,
     thumb: `${WORK}/work-gen-cards.webp`
   },
@@ -45,21 +45,21 @@ export const PORTFOLIO: PortfolioItem[] = [
   },
   {
     id: 'p4',
-    title: 'Campaign Brochure Suite',
+    title: 'Harbour & Co. Brochure Suite',
     category: 'promotional',
     categoryLabel: 'Promotional',
     description:
-      'Folded brochures and flyers built for high-impact colour and clean folding.',
+      'Folded campaign brochures for Harbour & Co. with high-impact colour and clean folding.',
     image: `${WORK}/work-gen-brochures.webp`,
     thumb: `${WORK}/work-gen-brochures.webp`
   },
   {
     id: 'p5',
-    title: 'Event Invitation Suite',
+    title: 'Harbour Evening Invitations',
     category: 'custom',
     categoryLabel: 'Custom',
     description:
-      'Invitation and event stationery with deckled edges and blind embossed detail.',
+      'Invitation and RSVP suite for Harbour & Co. with navy ink on cream stock.',
     image: `${WORK}/work-gen-invites.webp`,
     thumb: `${WORK}/work-gen-invites.webp`
   },
@@ -85,69 +85,69 @@ export const PORTFOLIO: PortfolioItem[] = [
   },
   {
     id: 'p8',
-    title: 'Sticker & Label Run',
+    title: 'Cedar Leaf Sticker Run',
     category: 'custom',
     categoryLabel: 'Custom',
     description:
-      'Die-cut stickers and labels produced across CMYK and monochrome vinyl stocks.',
+      'Die-cut stickers and labels for Cedar Leaf Café and NS Print Mart brand marks.',
     image: `${WORK}/work-gen-stickers.webp`,
     thumb: `${WORK}/work-gen-stickers.webp`
   },
   {
     id: 'p9',
-    title: 'Catalogue Presentation',
+    title: 'Studio Peak Catalogue',
     category: 'branding',
     categoryLabel: 'Branding',
-    description: 'Bound catalogue work focused on product storytelling and clean pagination.',
+    description: 'Bound catalogue presentation for Studio Peak with cyan and charcoal cover design.',
     image: `${WORK}/work-gen-catalogue.webp`,
     thumb: `${WORK}/work-gen-catalogue.webp`
   },
   {
     id: 'p10',
-    title: 'Corporate Stationery Set',
+    title: 'NS Corporate Stationery',
     category: 'corporate',
     categoryLabel: 'Corporate',
     description:
-      'Letterheads, envelopes, and folders produced as a matched business identity set.',
+      'Letterheads, envelopes, and compliment slips produced as a matched NS Print Mart identity set.',
     image: `${WORK}/work-gen-stationery.webp`,
     thumb: `${WORK}/work-gen-stationery.webp`
   },
   {
     id: 'p11',
-    title: 'Roll-Up & Banner Display',
+    title: 'Lanka Launch Banners',
     category: 'large-format',
     categoryLabel: 'Large Format',
     description:
-      'Large-format banner and roll-up print built for visibility in exhibition spaces.',
+      'Large-format roll-up and banner print for Lanka Launch event visibility.',
     image: `${WORK}/work-gen-banner.webp`,
     thumb: `${WORK}/work-gen-banner.webp`
   },
   {
     id: 'p12',
-    title: 'Packaging Presentation',
+    title: 'NS Packaging Set',
     category: 'packaging',
     categoryLabel: 'Packaging',
     description:
-      'Custom boxes and bags finished for a premium unboxing moment across CMYK and black stocks.',
+      'Custom boxes and sleeves finished for a premium NS Print Mart unboxing moment.',
     image: `${WORK}/work-gen-packaging.webp`,
     thumb: `${WORK}/work-gen-packaging.webp`
   },
   {
     id: 'p13',
-    title: 'Branded Merch Drop',
+    title: 'NS Merch Drop',
     category: 'promotional',
     categoryLabel: 'Promotional',
-    description: 'Apparel, totes, and drinkware prepared as a promotional merchandise set.',
+    description: 'Apparel, totes, and caps prepared as an NS Print Mart promotional merch set.',
     image: `${WORK}/work-gen-merch.webp`,
     thumb: `${WORK}/work-gen-merch.webp`
   },
   {
     id: 'p14',
-    title: 'Press Run Detail',
+    title: 'Press Proof Detail',
     category: 'corporate',
     categoryLabel: 'Corporate',
     description:
-      'Offset press detail showing CMYK ink laydown and registration during a production run.',
+      'Press-side proof sheets showing NS Print Mart colour bars and registration during production.',
     image: `${WORK}/work-gen-press.webp`,
     thumb: `${WORK}/work-gen-press.webp`
   }

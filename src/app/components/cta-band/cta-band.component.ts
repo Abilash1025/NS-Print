@@ -41,12 +41,13 @@ import { RevealDirective } from '../../shared/reveal.directive';
         .cta__card {
           grid-template-columns: 1.15fr 0.85fr;
           gap: 2rem;
-          align-items: end;
+          align-items: center;
         }
       }
 
       .cta__title {
         color: var(--text-primary);
+        margin: 0;
       }
 
       .cta__side p {

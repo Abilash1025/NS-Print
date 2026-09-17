@@ -61,26 +61,6 @@
   filter: saturate(1.06) contrast(1.03);
 }
 
-/* Print-head scan on hover */
-.srv__scan {
-  position: absolute;
-  inset: 0 auto 0 -35%;
-  width: 35%;
-  pointer-events: none;
-  z-index: 2;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.28),
-    transparent
-  );
-  opacity: 0;
-}
-
-.srv:hover .srv__scan {
-  animation: srv-scan 1.1s var(--ease-in-out) forwards;
-}
-
 /* Corner crop marks */
 .srv__marks {
   position: absolute;
@@ -237,26 +217,6 @@
   }
 }
 
-@keyframes srv-shine {
-  to {
-    transform: translateX(120%);
-  }
-}
-
-@keyframes srv-scan {
-  0% {
-    opacity: 0;
-    transform: translateX(0);
-  }
-  15% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(380%);
-  }
-}
-
 @keyframes srv-arrow {
   0% {
     transform: translateX(-6px);
@@ -272,7 +232,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .srv:hover .srv__scan,
   .srv:hover .srv__arrow span {
     animation: none;
   }

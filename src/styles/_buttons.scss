@@ -36,10 +36,18 @@
 .btn-primary {
   background: var(--text-primary);
   color: var(--text-inverse);
+  border-color: var(--text-primary);
 }
 
 .btn-primary:hover {
+  background: var(--brand-ink);
+  border-color: var(--brand-ink);
+  color: #fff;
+}
+
+.btn-primary:active {
   background: #000;
+  border-color: #000;
 }
 
 .btn-secondary {
@@ -50,9 +58,15 @@
 }
 
 .btn-secondary:hover {
+  background: color-mix(in srgb, var(--text-primary) 6%, #fff);
   border-color: var(--text-primary);
-  background: var(--surface);
+  color: var(--text-primary);
   box-shadow: var(--elev-1);
+}
+
+.btn-secondary:active {
+  background: color-mix(in srgb, var(--text-primary) 10%, #fff);
+  border-color: var(--brand-ink);
 }
 
 .btn-ghost {
@@ -65,7 +79,7 @@
 }
 
 .btn-ghost:hover {
-  color: var(--brand-gray);
+  color: var(--brand-ink);
   transform: none;
   box-shadow: none;
 }
@@ -73,10 +87,13 @@
 .btn-inverse {
   background: #fff;
   color: var(--text-primary);
+  border-color: #fff;
 }
 
 .btn-inverse:hover {
-  background: var(--surface-muted);
+  background: color-mix(in srgb, var(--text-primary) 8%, #fff);
+  border-color: color-mix(in srgb, var(--text-primary) 8%, #fff);
+  color: var(--brand-ink);
 }
 
 .btn-outline-inverse {
@@ -88,13 +105,22 @@
 
 .btn-outline-inverse:hover {
   border-color: #fff;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
   box-shadow: none;
 }
 
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
+}
+
+.btn:disabled:hover {
+  background: inherit;
+  border-color: inherit;
+  color: inherit;
+  box-shadow: var(--elev-1);
   transform: none;
 }
 
@@ -105,6 +131,7 @@
   font-size: 0.82rem;
   color: var(--text-primary);
   padding-bottom: 1px;
+  transition: color var(--duration) var(--ease-out);
 }
 
 .link-underline::after {
@@ -118,6 +145,10 @@
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--duration) var(--ease-out);
+}
+
+.link-underline:hover {
+  color: var(--brand-ink);
 }
 
 .link-underline:hover::after {

@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   readonly links = NAV_LINKS;
   readonly scrolled = signal(false);
   readonly menuOpen = signal(false);
-  readonly activeSection = signal('top');
+  readonly activeSection = signal('home');
   readonly openGroup = signal<string | null>(null);
   readonly mobileOpenGroup = signal<string | null>('Print');
 
@@ -26,9 +26,29 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private scrollLockTimer: ReturnType<typeof setTimeout> | null = null;
   /** While set, scroll-spy won't overwrite the hash mid-animation. */
   private scrollingTo: string | null = null;
+  /** Avoid clobbering URL/scroll while the browser restores position on refresh. */
+  private spyReady = false;
 
   ngOnInit(): void {
-    this.updateActiveSection(true);
+    const raw = location.hash.replace(/^#/, '');
+    const hash = raw === 'top' ? 'home' : raw;
+    if (hash === 'home' || this.links.some((l) => l.section === hash)) {
+      this.activeSection.set(hash || 'home');
+    }
+
+    const armSpy = (): void => {
+      // Let scroll restoration settle before writing hashes
+      setTimeout(() => {
+        this.spyReady = true;
+        this.updateActiveSection(false);
+      }, 120);
+    };
+
+    if (document.readyState === 'complete') {
+      armSpy();
+    } else {
+      window.addEventListener('load', armSpy, { once: true });
+    }
   }
 
   ngOnDestroy(): void {
@@ -41,7 +61,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll')
   onScroll(): void {
     this.scrolled.set(window.scrollY > 16);
-    this.updateActiveSection();
+    if (this.spyReady) {
+      this.updateActiveSection();
+    }
   }
 
   @HostListener('document:click', ['$event'])
@@ -107,17 +129,18 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   goTo(section: string, event?: Event): void {
     event?.preventDefault();
+    const target = section === 'top' ? 'home' : section;
     this.closeMenu();
-    this.lockScrollSpy(section);
-    this.activeSection.set(section);
-    this.syncHash(section, true);
+    this.lockScrollSpy(target);
+    this.activeSection.set(target);
+    this.syncHash(target, true);
 
-    if (section === 'top') {
+    if (target === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
-    this.scroll.scrollTo(section);
+    this.scroll.scrollTo(target);
   }
 
   private lockScrollSpy(section: string): void {
@@ -157,16 +180,20 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   private updateActiveSection(forceHash = false): void {
+    if (!this.spyReady && !forceHash) {
+      return;
+    }
+
     const offset = 130;
     const ids = this.links.map((l) => l.section);
-    let current = 'top';
+    let current = 'home';
 
     const doc = document.documentElement;
     if (window.innerHeight + window.scrollY >= doc.scrollHeight - 40) {
       current = ids[ids.length - 1] ?? 'contact';
     } else {
       for (const id of ids) {
-        if (id === 'top') {
+        if (id === 'home' || id === 'top') {
           continue;
         }
         const el = document.getElementById(id);
@@ -180,7 +207,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
       }
 
       if (window.scrollY < 40) {
-        current = 'top';
+        current = 'home';
       }
     }
 

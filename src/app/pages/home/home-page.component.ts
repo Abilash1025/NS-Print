@@ -59,8 +59,10 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const hash = window.location.hash.replace('#', '');
-    if (hash) {
+    const raw = window.location.hash.replace('#', '');
+    const hash = raw === 'top' ? 'home' : raw;
+    // Deep-link to a section after layout. Skip #home / empty so refresh can restore scroll.
+    if (hash && hash !== 'home') {
       setTimeout(() => this.scroll.scrollTo(hash, 'auto'), 80);
     }
   }

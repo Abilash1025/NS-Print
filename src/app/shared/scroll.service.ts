@@ -3,7 +3,15 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class ScrollService {
   scrollTo(sectionId: string, behavior: ScrollBehavior = 'smooth'): void {
-    const el = document.getElementById(sectionId);
+    const id = sectionId === 'top' ? 'home' : sectionId;
+
+    // #home is a zero-height anchor above the sticky nav — pin to page origin
+    if (id === 'home') {
+      window.scrollTo({ top: 0, left: 0, behavior });
+      return;
+    }
+
+    const el = document.getElementById(id);
     if (!el) {
       return;
     }

@@ -2,7 +2,7 @@ import { NavGroup, NavLink, ProcessStep, ValueProp } from '../models';
 
 /** Compact primary nav with category dropdowns */
 export const NAV_GROUPS: NavGroup[] = [
-  { label: 'Home', section: 'top' },
+  { label: 'Home', section: 'home' },
   {
     label: 'Print',
     children: [

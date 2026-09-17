@@ -1,46 +1,52 @@
 <section class="ab section section-canvas" id="about">
-  <div class="container ab__board">
-    <div class="ab__media" appReveal="left">
-      <div class="ab__frame">
-        <img
-          class="ab__img"
-          src="assets/images/print/about-atelier.webp"
-          alt="Printed samples and CMYK press rollers at NS Print Mart"
-          loading="lazy"
-          width="900"
-          height="1200"
-        />
-        <div class="ab__badge">
-          <span>{{ company.tagline }}</span>
-        </div>
+  <div class="container">
+    <div class="head-split" appReveal>
+      <div>
+        <p class="eyebrow">About {{ company.name }}</p>
+        <h2 class="display-md">More Than Printing.<br />We Help Brands Show Up.</h2>
       </div>
-    </div>
-
-    <div class="ab__copy" appReveal="right reveal-delay-2">
-      <p class="eyebrow">About {{ company.name }}</p>
-      <h2 class="display-md">More Than Printing.<br />We Help Brands Show Up.</h2>
-      <p class="lead ab__lead">
+      <p class="lead">
         Digital and offset print from Colombo — sharp colour, considered finishing, clear process.
       </p>
+    </div>
 
-      <ul class="ab__points">
-        <li>
-          <span class="ab__dot" data-ink="0"></span>
-          <span>Consistent CMYK colour</span>
-        </li>
-        <li>
-          <span class="ab__dot" data-ink="1"></span>
-          <span>Finishing that elevates</span>
-        </li>
-        <li>
-          <span class="ab__dot" data-ink="2"></span>
-          <span>Reliable turnaround</span>
-        </li>
-      </ul>
+    <div class="ab__board">
+      <div class="ab__media" appReveal="left">
+        <div class="ab__frame">
+          <img
+            class="ab__img"
+            src="assets/images/print/about-atelier.webp"
+            alt="Printed samples and CMYK press rollers at NS Print Mart"
+            loading="lazy"
+            width="900"
+            height="1200"
+          />
+          <div class="ab__badge">
+            <span>{{ company.tagline }}</span>
+          </div>
+        </div>
+      </div>
 
-      <div class="ab__foot">
-        <p class="ab__place">Colombo 13 · Sri Lanka</p>
-        <a href="#quote" class="btn btn-primary ab__cta">Talk to us</a>
+      <div class="ab__copy elev-card" appReveal="right reveal-delay-2">
+        <ul class="ab__points">
+          <li>
+            <span class="ab__dot" data-ink="0"></span>
+            <span>Consistent CMYK colour</span>
+          </li>
+          <li>
+            <span class="ab__dot" data-ink="1"></span>
+            <span>Finishing that elevates</span>
+          </li>
+          <li>
+            <span class="ab__dot" data-ink="2"></span>
+            <span>Reliable turnaround</span>
+          </li>
+        </ul>
+
+        <div class="ab__foot">
+          <p class="ab__place">Colombo 13 · Sri Lanka</p>
+          <a href="#quote" class="btn btn-primary ab__cta">Talk to us</a>
+        </div>
       </div>
     </div>
   </div>

@@ -11,19 +11,15 @@
 @media (min-width: 900px) {
   .why__bento {
     grid-template-columns: 1.05fr 0.95fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto;
     gap: 0.75rem 0.85rem;
     align-items: stretch;
   }
 
-  .why__intro {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
+  /* 2×2: Care sits under Colour so the left column has no empty stretch */
   .why__tile--feature {
     grid-column: 1;
-    grid-row: 2 / span 2;
+    grid-row: 1;
   }
 
   .why__tile--timing {
@@ -31,22 +27,15 @@
     grid-row: 1;
   }
 
+  .why__tile--care {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
   .why__tile--finish {
     grid-column: 2;
     grid-row: 2;
   }
-
-  .why__tile--care {
-    grid-column: 2;
-    grid-row: 3;
-  }
-}
-
-.why__intro {
-  display: grid;
-  align-content: start;
-  gap: 0.45rem;
-  padding: 0.15rem 0.1rem 0.35rem;
 }
 
 .why__title {
@@ -58,10 +47,6 @@
 
 .why__lead {
   margin: 0;
-  max-width: 28rem;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: var(--text-secondary);
 }
 
 .why__tile {
@@ -375,17 +360,9 @@
 }
 
 @media (max-width: 899px) {
-  .why__intro {
-    padding-inline: 0.1rem;
-  }
-
   .why__title {
     font-size: clamp(1.35rem, 6vw, 1.75rem);
     line-height: 1.15;
-  }
-
-  .why__lead {
-    font-size: 0.9rem;
   }
 
   .why__tile {

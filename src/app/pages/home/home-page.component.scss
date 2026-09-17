@@ -16,15 +16,6 @@
   padding: 1.1rem 1.15rem 1.15rem;
   background: #fff;
   overflow: hidden;
-  transition:
-    transform var(--duration) var(--ease-out),
-    box-shadow var(--duration) var(--ease-out);
-}
-
-.home-contact__info:hover,
-.home-contact__quote:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--elev-3);
 }
 
 .home-contact__head {
@@ -86,6 +77,17 @@
 .home-contact__action:hover {
   transform: translateY(-2px);
   box-shadow: var(--elev-2);
+}
+
+.home-contact__action--call:hover {
+  background: var(--brand-ink);
+  color: #fff;
+}
+
+.home-contact__action--wa:hover {
+  background: color-mix(in srgb, var(--text-primary) 6%, #fff);
+  color: var(--text-primary);
+  border-color: var(--text-primary);
 }
 
 .home-contact__list {

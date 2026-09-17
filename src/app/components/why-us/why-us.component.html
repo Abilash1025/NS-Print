@@ -1,14 +1,16 @@
 <section class="why section section-canvas" id="why">
   <div class="container why__wrap">
-    <div class="why__bento" appReveal="stagger">
-      <header class="why__intro">
+    <div class="head-split" appReveal>
+      <div>
         <p class="eyebrow">Why print with us</p>
         <h2 class="display-md why__title">Print that holds up<br />under a loupe.</h2>
-        <p class="lead why__lead">
-          We press-check, proof, and stand by every detail — so your work looks as sharp in print as it does in your file.
-        </p>
-      </header>
+      </div>
+      <p class="lead why__lead">
+        We press-check, proof, and stand by every detail — so your work looks as sharp in print as it does in your file.
+      </p>
+    </div>
 
+    <div class="why__bento" appReveal="stagger">
       <article class="why__tile why__tile--feature elev-card">
         <div class="why__tile-copy">
           <h3>{{ colour.title }}</h3>
@@ -49,12 +51,6 @@
         </ol>
       </article>
 
-      <article class="why__tile why__tile--finish elev-card">
-        <h3>{{ finish.title }}</h3>
-        <p>{{ finish.description }}</p>
-        <span class="why__quote" aria-hidden="true">”</span>
-      </article>
-
       <article class="why__tile why__tile--care elev-card">
         <h3>{{ care.title }}</h3>
         <p>{{ care.description }}</p>
@@ -66,6 +62,12 @@
             </li>
           }
         </ul>
+      </article>
+
+      <article class="why__tile why__tile--finish elev-card">
+        <h3>{{ finish.title }}</h3>
+        <p>{{ finish.description }}</p>
+        <span class="why__quote" aria-hidden="true">”</span>
       </article>
     </div>
   </div>
