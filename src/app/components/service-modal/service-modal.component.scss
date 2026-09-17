@@ -277,16 +277,14 @@
       max(0.85rem, env(safe-area-inset-top, 0px))
       0.55rem
       max(0.65rem, env(safe-area-inset-bottom, 0px));
-    align-items: end;
+    align-items: center;
+    justify-items: center;
   }
 
   .modal__panel {
     width: 100%;
-    max-height: min(
-      78dvh,
-      calc(100dvh - max(0.85rem, env(safe-area-inset-top, 0px)) - max(0.65rem, env(safe-area-inset-bottom, 0px)) - 3.75rem)
-    );
-    border-radius: 16px 16px 12px 12px;
+    max-height: 85dvh;
+    border-radius: 16px;
   }
 
   .modal__hero img {
@@ -309,10 +307,7 @@
 
 @media (max-width: 480px) {
   .modal__panel {
-    max-height: min(
-      74dvh,
-      calc(100dvh - max(0.85rem, env(safe-area-inset-top, 0px)) - max(0.65rem, env(safe-area-inset-bottom, 0px)) - 3.75rem)
-    );
+    max-height: 85dvh;
   }
 
   .modal__hero img {
