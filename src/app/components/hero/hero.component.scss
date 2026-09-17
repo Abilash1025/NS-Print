@@ -123,6 +123,16 @@
   color: var(--text-primary);
 }
 
+.hero__name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--brand-ink);
+}
+
 .hero__title {
   position: relative;
   z-index: 1;
@@ -970,8 +980,9 @@
     text-align: left;
   }
 
-  .hero__ticket-meta strong {
-    font-size: 0.74rem;
+  .hero__name {
+    font-size: clamp(1.35rem, 5.5vw, 1.7rem);
+    letter-spacing: -0.04em;
   }
 
   .hero__title {
