@@ -948,18 +948,26 @@
   .hero__sheet {
     padding: 0.75rem var(--gutter) 0.7rem;
     justify-content: flex-start;
+    align-items: center;
+    text-align: center;
   }
 
   .hero__ticket {
     margin-bottom: 0.55rem;
     padding-bottom: 0;
     gap: 0.4rem 0.55rem;
+    justify-content: center;
   }
 
   .hero__ticket-mark {
     width: 1.85rem;
     height: 1.85rem;
     font-size: 0.62rem;
+  }
+
+  .hero__ticket-meta {
+    flex: 0 1 auto;
+    text-align: left;
   }
 
   .hero__ticket-meta strong {
@@ -969,10 +977,16 @@
   .hero__title {
     font-size: clamp(1.5rem, 6.2vw, 2rem);
     line-height: 1.04;
+    text-align: center;
+  }
+
+  .hero__rule {
+    margin-inline: auto;
   }
 
   .hero__lead {
     margin-top: 0.45rem;
+    margin-inline: auto;
     font-size: 0.84rem;
     line-height: 1.4;
     display: -webkit-box;
@@ -982,18 +996,24 @@
   }
 
   .hero__actions {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: stretch;
+    justify-content: center;
+    width: 100%;
     margin-top: 0.7rem;
     gap: 0.4rem;
   }
 
   .hero__actions .btn {
-    width: 100%;
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
     justify-content: center;
     min-height: 2.4rem;
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.76rem;
+    white-space: nowrap;
   }
 
   .hero__swatches {
@@ -1100,6 +1120,11 @@
 
   .hero__title {
     font-size: clamp(1.35rem, 6vw, 1.8rem);
+  }
+
+  .hero__actions .btn {
+    padding: 0.48rem 0.45rem;
+    font-size: 0.7rem;
   }
 
   .sim__hood-bar em:nth-of-type(2),
